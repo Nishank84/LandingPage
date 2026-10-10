@@ -1,13 +1,12 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { BrandLogo } from './BrandLogo';
+import { ArrowRight } from 'lucide-react';
 
 interface FinalCTAProps {
   onOpenDemo: (topic?: string) => void;
-  onExplorePlatform: () => void;
+  onExplorePlatform?: () => void;
 }
 
-export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo, onExplorePlatform }) => {
+export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo }) => {
   return (
     <section
       id="demo"
@@ -19,46 +18,66 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo, onExplorePlatfor
         padding: 'clamp(5rem, 9vw, 8rem) 0'
       }}
     >
-      {/* Background Cosmic Vectors from Brand System */}
+      {/* Background Cosmic Vectors from Brand System (Accurate 45° Parallel Speed Rays) */}
       <div
         style={{
           position: 'absolute',
           top: 0,
           right: 0,
           bottom: 0,
-          width: '70%',
+          width: '65%',
           pointerEvents: 'none',
           overflow: 'hidden',
-          opacity: 0.85
+          opacity: 0.95
         }}
       >
         <svg
           width="100%"
           height="100%"
-          viewBox="0 0 700 500"
+          viewBox="0 0 800 600"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ position: 'absolute', right: '-10%', bottom: 0 }}
+          preserveAspectRatio="xMidYMid slice"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
         >
           <defs>
-            <linearGradient id="final-grad" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0%" stopColor="#FF6B4D" />
-              <stop offset="55%" stopColor="#8B5CF6" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#3B82F6" />
+            <linearGradient id="final-brand-grad" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stopColor="#FF6B4D" stopOpacity="0.9" />
+              <stop offset="60%" stopColor="#8B5CF6" stopOpacity="0.65" />
+              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
             </linearGradient>
-            <radialGradient id="final-glow" cx="35%" cy="100%" r="80%">
-              <stop offset="0%" stopColor="#FF6B4D" stopOpacity="0.25" />
-              <stop offset="45%" stopColor="#8B5CF6" stopOpacity="0.18" />
-              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
+            <radialGradient id="final-brand-glow" cx="65%" cy="55%" r="65%">
+              <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.18" />
+              <stop offset="50%" stopColor="#3B82F6" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#131A3D" stopOpacity="0" />
             </radialGradient>
           </defs>
-          <rect width="700" height="500" fill="url(#final-glow)" />
-          <path d="M115 520 L620 60" stroke="url(#final-grad)" strokeWidth="48" strokeLinecap="round" opacity="0.65" />
-          <path d="M300 540 L720 160" stroke="url(#final-grad)" strokeWidth="26" strokeLinecap="round" opacity="0.5" />
-          <path d="M12 480 L420 90" stroke="url(#final-grad)" strokeWidth="14" strokeLinecap="round" opacity="0.35" />
-          <circle cx="90" cy="460" r="80" fill="#3A4386" opacity="0.3" />
-          <circle cx="30" cy="420" r="60" fill="#565EA6" opacity="0.25" />
-          <circle cx="170" cy="470" r="70" fill="#29316A" opacity="0.35" />
+
+          {/* Ambient Glow */}
+          <rect width="800" height="600" fill="url(#final-brand-glow)" />
+
+          {/* Official GameUp Triple Speed Rays (Parallel 45° angle from Brand System) */}
+          <path
+            d="M 160 660 L 760 60"
+            stroke="url(#final-brand-grad)"
+            strokeWidth="42"
+            strokeLinecap="round"
+            opacity="0.95"
+          />
+          <path
+            d="M 290 710 L 830 170"
+            stroke="url(#final-brand-grad)"
+            strokeWidth="22"
+            strokeLinecap="round"
+            opacity="0.8"
+          />
+          <path
+            d="M 60 540 L 540 60"
+            stroke="url(#final-brand-grad)"
+            strokeWidth="14"
+            strokeLinecap="round"
+            opacity="0.55"
+          />
         </svg>
       </div>
 
@@ -94,7 +113,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo, onExplorePlatfor
             Bring modular academic tools, gamified missions, and hands-on digital workshops to your school.
           </p>
 
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div>
             <button
               onClick={() => onOpenDemo('Final CTA Booking')}
               className="btn-primary"
@@ -103,42 +122,6 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo, onExplorePlatfor
               Book a demo
               <ArrowRight size={18} />
             </button>
-
-            <button
-              onClick={onExplorePlatform}
-              className="btn-secondary"
-              style={{ height: '54px', padding: '0 28px', fontSize: '1rem' }}
-            >
-              See the platform
-              <ArrowUpRight size={18} />
-            </button>
-          </div>
-
-          {/* Sign-off banner from Brand Guidelines */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              paddingTop: '2.5rem',
-              borderTop: '1px solid var(--line)',
-              marginTop: '1.5rem',
-              flexWrap: 'wrap',
-              gap: '16px'
-            }}
-          >
-            <BrandLogo variant="dark" size="sm" />
-            <div
-              style={{
-                fontFamily: 'var(--font-text)',
-                fontSize: '0.8125rem',
-                fontWeight: 700,
-                letterSpacing: '0.2em',
-                color: 'var(--mist)'
-              }}
-            >
-              INDIA → A BRIGHTER TOMORROW
-            </div>
           </div>
         </div>
       </div>

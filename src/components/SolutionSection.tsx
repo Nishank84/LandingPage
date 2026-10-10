@@ -7,7 +7,7 @@ export const SolutionSection: React.FC = () => {
 
   return (
     <section
-      id="platform"
+      id="solution"
       className="section-wrapper"
       style={{
         backgroundColor: '#FFFFFF',
@@ -15,30 +15,11 @@ export const SolutionSection: React.FC = () => {
       }}
     >
       <div className="container">
-        {/* Section Header: Product Reveal */}
-        <div style={{ maxWidth: '860px', marginBottom: 'clamp(3.5rem, 6vw, 5.5rem)' }}>
-          <div className="eyebrow-container">
+        {/* New Section Hero Header: The Solution */}
+        <div style={{ maxWidth: '820px', marginBottom: 'clamp(2.5rem, 4.5vw, 3.5rem)' }}>
+          <div className="eyebrow-container" style={{ marginBottom: '0.75rem' }}>
             <span className="eyebrow-bar eyebrow-bar-slate" />
-            <span className="eyebrow-text eyebrow-text-slate">{SOLUTION_CONTENT.eyebrow}</span>
-          </div>
-
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              backgroundColor: 'var(--cloud)',
-              padding: '6px 16px',
-              borderRadius: '999px',
-              border: '1px solid var(--line-light)',
-              fontSize: '0.875rem',
-              fontWeight: 700,
-              color: 'var(--purple)',
-              marginBottom: '1rem'
-            }}
-          >
-            <Sparkles size={16} />
-            <span>THE PLATFORM · {SOLUTION_CONTENT.platformName.toUpperCase()}</span>
+            <span className="eyebrow-text eyebrow-text-slate">THE SOLUTION</span>
           </div>
 
           <h2
@@ -46,160 +27,144 @@ export const SolutionSection: React.FC = () => {
               fontFamily: 'var(--font-display)',
               fontSize: 'var(--section-title-size)',
               fontWeight: 800,
-              lineHeight: 1.08,
-              letterSpacing: '-0.035em',
+              lineHeight: 1.1,
+              letterSpacing: '-0.03em',
               color: 'var(--nebula)',
-              marginBottom: '1.25rem'
+              marginBottom: '1rem'
             }}
           >
-            {SOLUTION_CONTENT.subBrand}
-            <br />
-            <span className="text-gradient">{SOLUTION_CONTENT.tagline}</span>
+            Serious tech. <span className="text-gradient">Playful experience.</span>
           </h2>
 
           <p
             style={{
-              fontSize: 'clamp(1.125rem, 2vw, 1.35rem)',
-              lineHeight: 1.7,
+              fontSize: 'clamp(1.125rem, 2vw, 1.25rem)',
+              lineHeight: 1.65,
               color: 'var(--slate)',
-              marginBottom: '2rem'
+              maxWidth: '680px'
             }}
           >
-            {SOLUTION_CONTENT.description}
+            Connecting classrooms, administration, and parents into one unified, engaging ecosystem.
           </p>
-
-          {/* Feature Badges / Modular Pills */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-            {SOLUTION_CONTENT.pills.map((pill) => (
-              <span
-                key={pill}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '8px 18px',
-                  borderRadius: '999px',
-                  backgroundColor: 'var(--cloud)',
-                  border: '1px solid var(--line-light)',
-                  fontFamily: 'var(--font-text)',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  color: 'var(--nebula)'
-                }}
-              >
-                <Check size={14} color="var(--mint)" />
-                {pill}
-              </span>
-            ))}
-          </div>
         </div>
 
-        {/* Traditional vs GameUp Comparison Matrix: Serious tech. Playful experience. */}
+        {/* Traditional vs GameUp Comparison Matrix (3 Cards) */}
         <div
           style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '24px',
+            marginBottom: '2rem'
+          }}
+        >
+          {SOLUTION_CONTENT.comparisons.map((c, i) => (
+            <div
+              key={i}
+              className="card-base"
+              style={{
+                padding: '2rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '16px'
+              }}
+            >
+              <div
+                style={{
+                  fontSize: '0.75rem',
+                  fontWeight: 800,
+                  letterSpacing: '0.15em',
+                  color: 'var(--slate)'
+                }}
+              >
+                {c.category}
+              </div>
+
+              <h3
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.25rem',
+                  fontWeight: 700,
+                  color: 'var(--nebula)',
+                  lineHeight: 1.2
+                }}
+              >
+                {c.oldTitle}
+              </h3>
+
+              <p style={{ fontSize: '0.9375rem', color: 'var(--slate)', lineHeight: 1.6, flexGrow: 1 }}>
+                {c.oldDesc}
+              </p>
+
+              <div style={{ height: '1px', backgroundColor: 'var(--line-light)', margin: '4px 0' }} />
+
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <div
+                  style={{
+                    width: '24px',
+                    height: '24px',
+                    borderRadius: '50%',
+                    backgroundColor: 'rgba(255, 107, 77, 0.15)',
+                    color: 'var(--coral)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                    marginTop: '2px'
+                  }}
+                >
+                  <ArrowRight size={14} />
+                </div>
+                <div
+                  style={{
+                    fontSize: '0.9375rem',
+                    fontWeight: 700,
+                    color: 'var(--nebula)',
+                    lineHeight: 1.45
+                  }}
+                >
+                  {c.newSolution}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Feature Badges / Modular Products Pills below the comparison cards */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: '10px',
+            padding: '1.25rem 1.75rem',
             backgroundColor: 'var(--cloud)',
-            borderRadius: '24px',
-            padding: 'clamp(2rem, 4vw, 3.5rem)',
+            borderRadius: '18px',
             border: '1px solid var(--line-light)',
             marginBottom: 'clamp(4rem, 7vw, 6rem)'
           }}
         >
-          <div style={{ marginBottom: '2.5rem' }}>
-            <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-              <span className="eyebrow-bar eyebrow-bar-slate" />
-              <span className="eyebrow-text eyebrow-text-slate">WHY GAME UP</span>
-            </div>
-            <h3
+          {SOLUTION_CONTENT.pills.map((pill) => (
+            <span
+              key={pill}
               style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'var(--subsection-title-size)',
-                fontWeight: 800,
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '8px 18px',
+                borderRadius: '999px',
+                backgroundColor: '#FFFFFF',
+                border: '1px solid var(--line-light)',
+                fontFamily: 'var(--font-text)',
+                fontSize: '0.875rem',
+                fontWeight: 600,
                 color: 'var(--nebula)',
-                letterSpacing: '-0.02em'
+                boxShadow: 'var(--shadow-sm)'
               }}
             >
-              {SOLUTION_CONTENT.theme}
-            </h3>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '24px'
-            }}
-          >
-            {SOLUTION_CONTENT.comparisons.map((c, i) => (
-              <div
-                key={i}
-                className="card-base"
-                style={{
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '16px'
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: '0.75rem',
-                    fontWeight: 800,
-                    letterSpacing: '0.15em',
-                    color: 'var(--slate)'
-                  }}
-                >
-                  {c.category}
-                </div>
-
-                <h4
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '1.25rem',
-                    fontWeight: 700,
-                    color: 'var(--nebula)',
-                    lineHeight: 1.2
-                  }}
-                >
-                  {c.oldTitle}
-                </h4>
-
-                <p style={{ fontSize: '0.9375rem', color: 'var(--slate)', lineHeight: 1.6, flexGrow: 1 }}>
-                  {c.oldDesc}
-                </p>
-
-                <div style={{ height: '1px', backgroundColor: 'var(--line-light)', margin: '4px 0' }} />
-
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <div
-                    style={{
-                      width: '24px',
-                      height: '24px',
-                      borderRadius: '50%',
-                      backgroundColor: 'rgba(255, 107, 77, 0.15)',
-                      color: 'var(--coral)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      marginTop: '2px'
-                    }}
-                  >
-                    <ArrowRight size={14} />
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '0.9375rem',
-                      fontWeight: 700,
-                      color: 'var(--nebula)',
-                      lineHeight: 1.45
-                    }}
-                  >
-                    {c.newSolution}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+              <Check size={14} color="var(--mint)" />
+              {pill}
+            </span>
+          ))}
         </div>
 
         {/* Four Stakeholder Cards: Same people. Bigger possibilities. */}

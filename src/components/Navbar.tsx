@@ -8,19 +8,45 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const lastScrollYRef = React.useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
+      const currentScrollY = window.scrollY;
+      const lastScrollY = lastScrollYRef.current;
+      const scrollDiff = currentScrollY - lastScrollY;
+
+      // At top of page: always visible and un-scrolled styling
+      if (currentScrollY <= 20) {
+        setIsVisible(true);
         setIsScrolled(false);
+      } else {
+        setIsScrolled(true);
+
+        // If mobile menu is open and user scrolls down significantly, close it
+        if (mobileMenuOpen && scrollDiff > 15) {
+          setMobileMenuOpen(false);
+        }
+
+        if (!mobileMenuOpen) {
+          // Scrolling down: disappear
+          if (scrollDiff > 5 && currentScrollY > 60) {
+            setIsVisible(false);
+          } else if (scrollDiff < -5) {
+            // Scrolling up: reappear
+            setIsVisible(true);
+          }
+        }
       }
+
+      lastScrollYRef.current = currentScrollY;
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
 
   const navItems = [
     { label: 'The Platform', href: '#platform' },
@@ -45,9 +71,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
           left: 0,
           right: 0,
           zIndex: 900,
-          transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+          transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+          opacity: isVisible ? 1 : 0,
+          pointerEvents: isVisible ? 'auto' : 'none',
+          transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease',
           backgroundColor: isScrolled
-            ? 'rgba(19, 26, 61, 0.92)'
+            ? 'rgba(19, 26, 61, 0.94)'
             : 'rgba(19, 26, 61, 0.4)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',

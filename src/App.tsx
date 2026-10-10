@@ -5,7 +5,6 @@ import { GoalSection } from './components/GoalSection';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { PlatformModules } from './components/PlatformModules';
-import { FeatureDeepDives } from './components/FeatureDeepDives';
 import { CrucibleSection } from './components/CrucibleSection';
 import { ThoughtSection } from './components/ThoughtSection';
 import { FinalCTA } from './components/FinalCTA';
@@ -32,13 +31,6 @@ export function App() {
     }
   }, []);
 
-  const handleSelectModule = useCallback((moduleId: string) => {
-    const el = document.getElementById(moduleId);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
-
   return (
     <div className="landing-page-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* 3. Sticky / Floating Navigation */}
@@ -47,10 +39,7 @@ export function App() {
       {/* Main Narrative Flow */}
       <main style={{ flexGrow: 1 }}>
         {/* 4. Hero Section */}
-        <Hero
-          onOpenDemo={handleOpenDemo}
-          onExplorePlatform={handleExplorePlatform}
-        />
+        <Hero onOpenDemo={handleOpenDemo} />
 
         {/* 5. The Goal: A brighter tomorrow */}
         <GoalSection />
@@ -61,16 +50,10 @@ export function App() {
         {/* 7. The Solution: GameUp AcademicOS & Stakeholder possibilities */}
         <SolutionSection />
 
-        {/* 8. Platform Modules: Everything schools need in one connected platform */}
-        <PlatformModules
-          onSelectModule={handleSelectModule}
-          onOpenDemo={handleOpenDemo}
-        />
+        {/* 8. The Platform Modules & Interactive Product Catalog */}
+        <PlatformModules onOpenDemo={handleOpenDemo} />
 
-        {/* 9-18. Dedicated Feature Showcases (Exam, Task, AI Assistant, Library, Training, Behaviour, Analytics, Admin, WhatsApp, Communities) */}
-        <FeatureDeepDives />
-
-        {/* 19-23. The Crucible: One Day -> One Skill -> One Real Project & Workshops */}
+        {/* 9. The Crucible: One Day -> One Skill -> One Real Project & Workshops */}
         <CrucibleSection onOpenDemo={handleOpenDemo} />
 
         {/* 24-26. The Thought: Lift-off Progression, Vision, Mission, Team, and 5 Beliefs */}

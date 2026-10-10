@@ -67,14 +67,14 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
           >
             <defs>
               <linearGradient id="crucible-grad" x1="0" y1="1" x2="1" y2="0">
-                <stop offset="0%" stopColor="#FF6B4D" />
-                <stop offset="60%" stopColor="#8B5CF6" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#3B82F6" />
+                <stop offset="0%" stopColor="#FF6B4D" stopOpacity="0.9" />
+                <stop offset="60%" stopColor="#8B5CF6" stopOpacity="0.65" />
+                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
               </linearGradient>
             </defs>
-            <path d="M100 720 L750 80" stroke="url(#crucible-grad)" strokeWidth="60" strokeLinecap="round" opacity="0.6" />
-            <path d="M280 750 L840 190" stroke="url(#crucible-grad)" strokeWidth="32" strokeLinecap="round" opacity="0.45" />
-            <path d="M20 660 L520 140" stroke="url(#crucible-grad)" strokeWidth="16" strokeLinecap="round" opacity="0.3" />
+            <path d="M100 720 L740 80" stroke="url(#crucible-grad)" strokeWidth="48" strokeLinecap="round" opacity="0.5" />
+            <path d="M260 760 L800 220" stroke="url(#crucible-grad)" strokeWidth="26" strokeLinecap="round" opacity="0.4" />
+            <path d="M20 620 L480 160" stroke="url(#crucible-grad)" strokeWidth="14" strokeLinecap="round" opacity="0.25" />
           </svg>
         </div>
 

@@ -76,7 +76,7 @@ export const FeatureDeepDives: React.FC = () => {
                   marginBottom: '1rem'
                 }}
               >
-                Exam Management System
+                Exam Prep
               </h2>
 
               <p
@@ -503,7 +503,7 @@ export const FeatureDeepDives: React.FC = () => {
                   marginBottom: '1rem'
                 }}
               >
-                AI Academic Assistant
+                Delta
               </h2>
 
               <p
@@ -614,7 +614,7 @@ export const FeatureDeepDives: React.FC = () => {
                   </div>
                   <div>
                     <div style={{ fontFamily: 'var(--font-display)', fontSize: '0.875rem', fontWeight: 700 }}>
-                      Academic Assistant
+                      Delta
                     </div>
                     <div style={{ fontSize: '0.75rem', color: 'var(--slate)' }}>Grounded in NCERT / CBSE Class 9 &amp; 10</div>
                   </div>
