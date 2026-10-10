@@ -139,54 +139,13 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = () => {
             <defs>
               <linearGradient id="crucible-grad" x1="0" y1="1" x2="1" y2="0">
                 <stop offset="0%" stopColor="#FF6B4D" stopOpacity="0.9" />
-                <stop offset="55%" stopColor="#8B5CF6" stopOpacity="0.75" />
-                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.6" />
+                <stop offset="60%" stopColor="#8B5CF6" stopOpacity="0.65" />
+                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
               </linearGradient>
             </defs>
-
-            {/* Primary thick diagonal stripe - fully completed across entire section */}
-            <line
-              x1="-150"
-              y1="1250"
-              x2="1550"
-              y2="-250"
-              stroke="url(#crucible-grad)"
-              strokeWidth="68"
-              opacity="0.65"
-            />
-
-            {/* Parallel secondary stripe to the right */}
-            <line
-              x1="90"
-              y1="1250"
-              x2="1790"
-              y2="-250"
-              stroke="url(#crucible-grad)"
-              strokeWidth="38"
-              opacity="0.45"
-            />
-
-            {/* Accent stripe to the left */}
-            <line
-              x1="-350"
-              y1="1250"
-              x2="1350"
-              y2="-250"
-              stroke="url(#crucible-grad)"
-              strokeWidth="18"
-              opacity="0.3"
-            />
-
-            {/* Far right accent stripe */}
-            <line
-              x1="320"
-              y1="1250"
-              x2="2020"
-              y2="-250"
-              stroke="url(#crucible-grad)"
-              strokeWidth="24"
-              opacity="0.25"
-            />
+            <path d="M100 720 L740 80" stroke="url(#crucible-grad)" strokeWidth="48" strokeLinecap="round" opacity="0.5" />
+            <path d="M260 760 L800 220" stroke="url(#crucible-grad)" strokeWidth="26" strokeLinecap="round" opacity="0.4" />
+            <path d="M20 620 L480 160" stroke="url(#crucible-grad)" strokeWidth="14" strokeLinecap="round" opacity="0.25" />
           </svg>
         </div>
 

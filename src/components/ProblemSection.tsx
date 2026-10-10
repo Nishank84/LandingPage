@@ -1,6 +1,6 @@
 import React from 'react';
 import { PROBLEM_CONTENT } from '../data/content';
-import { AlertTriangle, ArrowDown } from 'lucide-react';
+import { AlertTriangle, ArrowUpRight } from 'lucide-react';
 
 export const ProblemSection: React.FC = () => {
   return (
@@ -103,7 +103,7 @@ export const ProblemSection: React.FC = () => {
               >
                 <AlertTriangle size={18} />
                 <span style={{ fontSize: '0.8125rem', fontWeight: 800, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-                  Systemic Strain
+                  {stat.strainNumber}
                 </span>
               </div>
 
@@ -149,65 +149,41 @@ export const ProblemSection: React.FC = () => {
                 {stat.context}
               </p>
 
-              <div
+              <a
+                href={stat.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                   padding: '6px 14px',
                   borderRadius: '999px',
                   backgroundColor: 'rgba(255, 255, 255, 0.06)',
                   border: '1px solid rgba(255, 255, 255, 0.12)',
                   fontSize: '0.75rem',
                   fontWeight: 600,
-                  color: 'var(--mist)'
+                  color: 'var(--mist)',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+                  e.currentTarget.style.color = '#FFFFFF';
+                  e.currentTarget.style.borderColor = 'var(--coral)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
+                  e.currentTarget.style.color = 'var(--mist)';
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
                 }}
               >
                 <span>{stat.source}</span>
-              </div>
+                <ArrowUpRight size={13} style={{ flexShrink: 0, opacity: 0.8 }} />
+              </a>
             </div>
           ))}
-        </div>
-
-        {/* Transition prompt toward Solution */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            gap: '12px',
-            textAlign: 'center',
-            paddingTop: '1rem'
-          }}
-        >
-          <div
-            style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: '50%',
-              backgroundColor: 'rgba(255, 255, 255, 0.08)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'var(--sun)',
-              border: '1px solid rgba(255, 255, 255, 0.15)'
-            }}
-          >
-            <ArrowDown size={20} />
-          </div>
-          <span
-            style={{
-              fontFamily: 'var(--font-text)',
-              fontSize: '0.875rem',
-              fontWeight: 700,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: 'var(--sun)'
-            }}
-          >
-            The Antidote: Modular Academic Infrastructure
-          </span>
         </div>
       </div>
     </section>

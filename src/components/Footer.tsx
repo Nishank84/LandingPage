@@ -46,20 +46,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
         >
           {/* Brand Info Left */}
           <div style={{ maxWidth: '380px' }}>
-            <BrandLogo variant="dark" showTagline={true} size="md" />
-            <p
-              style={{
-                fontSize: '0.9375rem',
-                color: 'var(--mist)',
-                lineHeight: 1.6,
-                marginTop: '1.25rem'
-              }}
-            >
-              {FOOTER_CONTENT.tagline} Making school an inspiring adventure of curiosity,
-              creativity, and belonging for everyone.
-            </p>
+            <BrandLogo variant="dark" showTagline={false} size="md" />
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '1.25rem' }}>
               <a
                 href={FOOTER_CONTENT.linkedin}
                 target="_blank"
@@ -188,30 +177,26 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
                   {FOOTER_CONTENT.email}
                 </a>
                 <span style={{ color: 'var(--mist)', fontSize: '0.875rem' }}>
-                  Bengaluru &amp; Chennai, India
+                  Coimbatore, India
                 </span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom Copyright & Back to Top */}
+        {/* Bottom Back to Top */}
         <div
           style={{
             paddingTop: '2rem',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-end',
             flexWrap: 'wrap',
             gap: '16px',
             fontSize: '0.8125rem',
             color: 'var(--mist)'
           }}
         >
-          <div>
-            © {new Date().getFullYear()} GameUp Technologies. All rights reserved. Single source of truth: AcademicOS &amp; The Crucible.
-          </div>
-
           <button
             onClick={scrollToTop}
             aria-label="Back to top"

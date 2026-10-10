@@ -73,15 +73,19 @@ export const PROBLEM_CONTENT = {
   lead: "Education is facing a crisis of pressure and administrative exhaustion.",
   stats: [
     {
+      strainNumber: "Systemic Strain #1",
       figure: "70%",
       label: "of Indian students face Anxiety.",
       source: "Source: NCERT & National Mental Health Survey",
+      sourceUrl: "https://timesofindia.indiatimes.com/city/delhi/all-is-not-well-anxiety-bogs-down-nearly-70-students/articleshow/124296825.cms",
       context: "Overwhelming exam stress, disconnected assignments, and isolation drain the joy from learning."
     },
     {
+      strainNumber: "Systemic Strain #2",
       figure: "65%",
       label: "of Indian teachers are overworked.",
-      source: "Source: National Education Research & Faculty Surveys",
+      source: "Source: Ministry of Education Survey / India Today",
+      sourceUrl: "https://www.indiatoday.in/education-today/news/story/65-teachers-overburdened-only-58-participated-in-nep-discussions-moe-survey-1954891-2022-05-27",
       context: "Repetitive paper grading, administrative busywork, and endless messaging groups leave no room to teach."
     }
   ]
@@ -155,7 +159,7 @@ export const SOLUTION_CONTENT = {
 export const PLATFORM_MODULES: PlatformModule[] = [
   {
     id: "exam-management",
-    name: "Exam Management System",
+    name: "Exam Prep",
     tagline: "Make every assessment simpler, smarter and more secure.",
     shortDesc: "End-to-end assessments from question bank authoring to impartial anonymous evaluations.",
     fullDesc: "From building question banks to creating examinations, evaluating submissions and resolving student doubts, Game Up brings the entire assessment journey into one place. Administrators can create personalised question papers for individual students, while anonymous correction ensures that teachers evaluate papers without knowing whose work they are reviewing—helping create a more consistent and impartial assessment process.",
@@ -199,7 +203,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
   },
   {
     id: "ai-assistant",
-    name: "AI Academic Assistant",
+    name: "Delta",
     tagline: "A curriculum-aware AI assistant for every learner.",
     shortDesc: "Chatbot grounded in each school's exact curriculum for adaptive notes, quizzes, and explanations.",
     fullDesc: "Game Up’s AI chatbot is grounded in each user’s specific curriculum, giving teachers and students an academic assistant that understands the context of their learning environment. Teachers can create notes and questions, correct answers, generate variations of topics and automate tasks across the platform. Students can ask questions, explore concepts, generate practice quizzes and receive explanations adapted to the way they learn. The assistant also keeps track of relevant in-platform activity, helping users stay on top of what needs to be done.",
@@ -591,7 +595,6 @@ export const FOOTER_CONTENT = {
   navLinks: [
     { label: "The Platform", href: "#platform" },
     { label: "The Crucible", href: "#crucible" },
-    { label: "The Thought", href: "#thought" },
-    { label: "Book a demo", href: "#demo" }
+    { label: "The Thought", href: "#thought" }
   ]
 };
