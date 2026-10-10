@@ -486,7 +486,7 @@ export const CRUCIBLE_OUTCOME = {
     "A day to create.",
     "A day to build what’s next."
   ],
-  ctaText: "Bring The Crucible to your school."
+
 };
 
 export const THOUGHT_CONTENT = {

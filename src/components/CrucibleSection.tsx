@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   CRUCIBLE_HERO,
   CRUCIBLE_WORKSHOPS,
@@ -6,6 +6,7 @@ import {
   WHY_CRUCIBLE,
   CRUCIBLE_OUTCOME
 } from '../data/content';
+import { CrucibleProgressionSection } from './CrucibleProgressionSection';
 import {
   Flame,
   ArrowRight,
@@ -22,13 +23,77 @@ import {
 } from 'lucide-react';
 
 interface CrucibleSectionProps {
-  onOpenDemo: (topic?: string) => void;
+  onOpenDemo?: (topic?: string) => void;
 }
 
 const workshopIcons = [Code2, Smartphone, Sparkles, Cpu, Palette, Cloud];
 const experienceIcons = [Zap, Hammer, Trophy, Cpu, Palette, Compass];
 
-export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) => {
+const TypewriterRhythm: React.FC = () => {
+  const items = CRUCIBLE_OUTCOME.rhythm;
+  const [itemIndex, setItemIndex] = useState(0);
+  const [displayText, setDisplayText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentFullText = items[itemIndex];
+    const typingSpeed = isDeleting ? 28 : 60;
+
+    if (!isDeleting && displayText === currentFullText) {
+      const timeout = setTimeout(() => {
+        setIsDeleting(true);
+      }, 1800);
+      return () => clearTimeout(timeout);
+    }
+
+    if (isDeleting && displayText === '') {
+      const timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setItemIndex((prev) => (prev + 1) % items.length);
+      }, 400);
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(() => {
+      setDisplayText((prev) => {
+        if (isDeleting) {
+          return currentFullText.substring(0, prev.length - 1);
+        } else {
+          return currentFullText.substring(0, prev.length + 1);
+        }
+      });
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, itemIndex, items]);
+
+  const isFinalItem = itemIndex === items.length - 1;
+
+  return (
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        paddingLeft: '1.25rem',
+        borderLeft: '4px solid var(--coral)',
+        minHeight: '3.75rem',
+        fontFamily: 'var(--font-display)',
+        fontSize: 'clamp(1.25rem, 2.6vw, 2.125rem)',
+        fontWeight: 700,
+        letterSpacing: '-0.02em',
+        marginTop: '1.5rem',
+        marginBottom: '0.5rem'
+      }}
+    >
+      <span style={{ color: isFinalItem ? 'var(--sun)' : '#FFFFFF' }}>
+        {displayText}
+      </span>
+      <span className="typewriter-cursor" aria-hidden="true" />
+    </div>
+  );
+};
+
+export const CrucibleSection: React.FC<CrucibleSectionProps> = () => {
   return (
     <section id="crucible" style={{ backgroundColor: '#FFFFFF', position: 'relative' }}>
       {/* ========================================================
@@ -38,32 +103,38 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
         style={{
           backgroundColor: 'var(--nebula)',
           color: '#FFFFFF',
-          paddingTop: 'clamp(5rem, 9vw, 8rem)',
-          paddingBottom: 'clamp(5rem, 9vw, 7.5rem)',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          paddingTop: 'calc(var(--nav-height) + 1.5rem)',
+          paddingBottom: 'clamp(3rem, 5vh, 5rem)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          boxSizing: 'border-box'
         }}
       >
         {/* Background Crucible Flare Vectors */}
         <div
           style={{
             position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            width: '65%',
+            inset: 0,
+            width: '100%',
+            height: '100%',
             pointerEvents: 'none',
             overflow: 'hidden',
-            opacity: 0.8
+            zIndex: 1
           }}
+          aria-hidden="true"
         >
           <svg
             width="100%"
             height="100%"
-            viewBox="0 0 800 700"
+            viewBox="0 0 1440 900"
+            preserveAspectRatio="xMidYMid slice"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            style={{ position: 'absolute', right: '-15%', top: 0 }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}
           >
             <defs>
               <linearGradient id="crucible-grad" x1="0" y1="1" x2="1" y2="0">
@@ -82,7 +153,7 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
           <div style={{ maxWidth: '820px' }}>
             <div className="eyebrow-container">
               <span className="eyebrow-bar" style={{ backgroundColor: 'var(--coral)' }} />
-              <span className="eyebrow-text eyebrow-text-coral">{CRUCIBLE_HERO.sectionLabel}</span>
+              <span className="eyebrow-text eyebrow-text-coral">{CRUCIBLE_HERO.tagline}</span>
             </div>
 
             <h2
@@ -98,7 +169,6 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
             >
               The Crucible.
               <br />
-              <span className="text-gradient">{CRUCIBLE_HERO.tagline}</span>
             </h2>
 
             <p
@@ -136,7 +206,7 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                 alignItems: 'center',
                 gap: '16px',
                 boxShadow: '0 16px 36px rgba(0, 0, 0, 0.35)',
-                marginBottom: '3rem',
+                marginBottom: 0,
                 flexWrap: 'wrap'
               }}
             >
@@ -173,55 +243,14 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                 </div>
               </div>
             </div>
-
-            {/* Horizontal Journey Progression: Explore -> Experiment -> Solve -> Create -> Share */}
-            <div>
-              <div style={{ fontSize: '0.75rem', fontWeight: 800, letterSpacing: '0.15em', color: 'var(--mist)', textTransform: 'uppercase', marginBottom: '1rem' }}>
-                The 5-Stage Crucible Progression
-              </div>
-
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
-                  gap: '12px'
-                }}
-              >
-                {CRUCIBLE_HERO.journeySteps.map((step) => (
-                  <div
-                    key={step.step}
-                    style={{
-                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      borderRadius: '14px',
-                      padding: '14px 16px',
-                      border: '1px solid rgba(255, 255, 255, 0.1)',
-                      position: 'relative'
-                    }}
-                  >
-                    <div style={{ fontSize: '0.6875rem', fontWeight: 800, color: 'var(--sun)', marginBottom: '4px' }}>
-                      STAGE {step.step}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: 'var(--font-display)',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                        color: '#FFFFFF',
-                        marginBottom: '4px'
-                      }}
-                    >
-                      {step.name}
-                    </div>
-                    <div style={{ fontSize: '0.75rem', color: 'var(--mist)', lineHeight: 1.4 }}>
-                      {step.desc}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
+
+      {/* ========================================================
+          19b. THE 5-STAGE CRUCIBLE PROGRESSION (Dedicated Section)
+          ======================================================== */}
+      <CrucibleProgressionSection />
 
       {/* ========================================================
           20. THE CRUCIBLE WORKSHOPS (3x2 Desktop Grid)
@@ -229,11 +258,6 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
       <div className="section-wrapper" style={{ backgroundColor: '#FFFFFF', borderBottom: '1px solid var(--line-light)' }}>
         <div className="container">
           <div style={{ maxWidth: '780px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
-            <div className="eyebrow-container">
-              <span className="eyebrow-bar eyebrow-bar-slate" />
-              <span className="eyebrow-text eyebrow-text-slate">HANDS-ON IMMERSION</span>
-            </div>
-
             <h3
               style={{
                 fontFamily: 'var(--font-display)',
@@ -255,13 +279,7 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
           </div>
 
           {/* 3x2 Grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '24px'
-            }}
-          >
+          <div className="grid-3col">
             {CRUCIBLE_WORKSHOPS.map((workshop, idx) => {
               const IconComp = workshopIcons[idx] || Code2;
               return (
@@ -273,11 +291,11 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                     borderRadius: '20px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '16px',
+                    height: '100%',
                     position: 'relative'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
                     <div
                       style={{
                         width: '50px',
@@ -312,23 +330,46 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                       fontSize: '1.25rem',
                       fontWeight: 800,
                       color: 'var(--nebula)',
-                      lineHeight: 1.3
+                      lineHeight: 1.3,
+                      minHeight: '3.25rem',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      marginBottom: '12px'
                     }}
                   >
                     {workshop.title}
                   </h4>
 
-                  <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--slate)', flexGrow: 1 }}>
+                  <p
+                    style={{
+                      fontSize: '0.9375rem',
+                      lineHeight: 1.65,
+                      color: 'var(--slate)',
+                      flexGrow: 1,
+                      minHeight: '4.5rem',
+                      marginBottom: '16px'
+                    }}
+                  >
                     {workshop.description}
                   </p>
 
-                  <div style={{ height: '1px', backgroundColor: 'var(--line-light)' }} />
+                  <div style={{ height: '1px', backgroundColor: 'var(--line-light)', marginBottom: '16px' }} />
 
-                  {/* Learn & Build Blocks */}
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-                    <div style={{ fontSize: '0.8125rem', lineHeight: 1.5 }}>
-                      <strong style={{ color: 'var(--nebula)' }}>Learn: </strong>
-                      <span style={{ color: 'var(--slate)' }}>{workshop.learn}</span>
+                  {/* Learn & Build Blocks (Pinned to bottom with equal heights) */}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: 'auto' }}>
+                    <div
+                      style={{
+                        fontSize: '0.8125rem',
+                        lineHeight: 1.5,
+                        minHeight: '2.8rem',
+                        display: 'flex',
+                        alignItems: 'flex-start'
+                      }}
+                    >
+                      <span>
+                        <strong style={{ color: 'var(--nebula)' }}>Learn: </strong>
+                        <span style={{ color: 'var(--slate)' }}>{workshop.learn}</span>
+                      </span>
                     </div>
 
                     <div
@@ -336,13 +377,18 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                         fontSize: '0.8125rem',
                         lineHeight: 1.5,
                         backgroundColor: 'var(--cloud)',
-                        padding: '8px 12px',
+                        padding: '10px 14px',
                         borderRadius: '10px',
-                        borderLeft: `3px solid ${workshop.accent}`
+                        borderLeft: `3px solid ${workshop.accent}`,
+                        minHeight: '59px',
+                        display: 'flex',
+                        alignItems: 'center'
                       }}
                     >
-                      <strong style={{ color: 'var(--nebula)' }}>Build: </strong>
-                      <span style={{ color: 'var(--nebula)', fontWeight: 600 }}>{workshop.build}</span>
+                      <span>
+                        <strong style={{ color: 'var(--nebula)' }}>Build: </strong>
+                        <span style={{ color: 'var(--nebula)', fontWeight: 600 }}>{workshop.build}</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -353,7 +399,59 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
       </div>
 
       {/* ========================================================
-          21. PROGRAM EXPERIENCE: 6 Concepts
+          21a. STUDENT ENGAGEMENT CHAPTER HERO
+          ======================================================== */}
+      <div
+        id="student-engagement"
+        style={{
+          backgroundColor: '#FFFFFF',
+          color: 'var(--nebula)',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          paddingTop: 'calc(var(--nav-height) + 2rem)',
+          paddingBottom: 'clamp(3rem, 6vh, 5rem)',
+          position: 'relative',
+          overflow: 'hidden',
+          boxSizing: 'border-box',
+          borderBottom: '1px solid var(--line-light)'
+        }}
+      >
+        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+          <div style={{ maxWidth: '920px' }}>
+            <h2
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+                fontWeight: 800,
+                lineHeight: 1.12,
+                letterSpacing: '-0.035em',
+                color: 'var(--nebula)',
+                marginBottom: '1.75rem'
+              }}
+            >
+              {PROGRAM_EXPERIENCE.title}
+            </h2>
+
+            <p
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(1.25rem, 2.5vw, 1.85rem)',
+                fontWeight: 600,
+                color: 'var(--purple)',
+                lineHeight: 1.4,
+                maxWidth: '820px'
+              }}
+            >
+              {PROGRAM_EXPERIENCE.lead}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ========================================================
+          21b. THE 6 ENGAGEMENT PILLARS (3x2 Desktop Grid)
           ======================================================== */}
       <div
         className="section-wrapper"
@@ -363,38 +461,7 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
         }}
       >
         <div className="container">
-          <div style={{ maxWidth: '800px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
-            <div className="eyebrow-container">
-              <span className="eyebrow-bar eyebrow-bar-slate" />
-              <span className="eyebrow-text eyebrow-text-slate">ENGAGEMENT ARCHITECTURE</span>
-            </div>
-
-            <h3
-              style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'var(--section-title-size)',
-                fontWeight: 800,
-                color: 'var(--nebula)',
-                lineHeight: 1.15,
-                letterSpacing: '-0.03em',
-                marginBottom: '1rem'
-              }}
-            >
-              {PROGRAM_EXPERIENCE.title}
-            </h3>
-
-            <p style={{ fontSize: '1.125rem', color: 'var(--purple)', fontWeight: 600, lineHeight: 1.6 }}>
-              {PROGRAM_EXPERIENCE.lead}
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '20px'
-            }}
-          >
+          <div className="grid-3col">
             {PROGRAM_EXPERIENCE.pillars.map((pillar, idx) => {
               const IconC = experienceIcons[idx] || Zap;
               return (
@@ -406,7 +473,8 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                     borderRadius: '20px',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '14px'
+                    gap: '14px',
+                    height: '100%'
                   }}
                 >
                   <div
@@ -430,13 +498,16 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                       fontSize: '1.1875rem',
                       fontWeight: 800,
                       color: 'var(--nebula)',
-                      lineHeight: 1.25
+                      lineHeight: 1.25,
+                      minHeight: '2.8rem',
+                      display: 'flex',
+                      alignItems: 'flex-start'
                     }}
                   >
                     {pillar.title}
                   </h4>
 
-                  <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--slate)' }}>
+                  <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--slate)', flexGrow: 1 }}>
                     {pillar.description}
                   </p>
                 </div>
@@ -551,40 +622,8 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
                 {CRUCIBLE_OUTCOME.lead}
               </p>
 
-              {/* Rhythm Progression */}
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  marginBottom: '2.5rem',
-                  paddingLeft: '1rem',
-                  borderLeft: '3px solid var(--coral)'
-                }}
-              >
-                {CRUCIBLE_OUTCOME.rhythm.map((item, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
-                      fontWeight: 700,
-                      color: i === 4 ? 'var(--sun)' : '#FFFFFF'
-                    }}
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() => onOpenDemo('Crucible Workshop Booking')}
-                className="btn-primary"
-                style={{ height: '54px', padding: '0 32px', fontSize: '1rem' }}
-              >
-                {CRUCIBLE_OUTCOME.ctaText}
-                <ArrowRight size={18} />
-              </button>
+              {/* Rhythm Progression with Typewriter Effect */}
+              <TypewriterRhythm />
             </div>
           </div>
         </div>
