@@ -1,0 +1,200 @@
+{
+  "nodes": [
+    {
+      "id": "readme_react_compiler",
+      "label": "React Compiler",
+      "file_type": "concept",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_eslint_config",
+      "label": "ESLint Configuration",
+      "file_type": "concept",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_vite_template",
+      "label": "Vite React Template",
+      "file_type": "concept",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html_gameup_platform",
+      "label": "GameUp AcademicOS",
+      "file_type": "document",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html_crucible",
+      "label": "The Crucible Workshop Series",
+      "file_type": "concept",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "index_html_root",
+      "label": "HTML Mount Root",
+      "file_type": "document",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/index.html",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_favicon_icon",
+      "label": "Favicon Brand Icon",
+      "file_type": "image",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "public_icons_sprites",
+      "label": "Icon Sprite Sheet",
+      "file_type": "image",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/public/icons.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "src_assets_hero_isometric_layers",
+      "label": "Isometric Platform Graphic",
+      "file_type": "image",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/src/assets/hero.png",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "src_assets_react_logo",
+      "label": "React Framework Logo",
+      "file_type": "image",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/src/assets/react.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "src_assets_vite_logo",
+      "label": "Vite Bundler Logo",
+      "file_type": "image",
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/src/assets/vite.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "index_html_root",
+      "target": "src_main",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_gameup_platform",
+      "target": "index_html_crucible",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "index_html_gameup_platform",
+      "target": "public_favicon_icon",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/index.html",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "src_assets_hero_isometric_layers",
+      "target": "index_html_gameup_platform",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/src/assets/hero.png",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "src_assets_react_logo",
+      "target": "readme_vite_template",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/src/assets/react.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "src_assets_vite_logo",
+      "target": "readme_vite_template",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/src/assets/vite.svg",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_react_compiler",
+      "target": "readme_vite_template",
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "/Users/apple/software_development/gameup/LandingPage/README.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
