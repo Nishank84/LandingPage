@@ -1,15 +1,13 @@
 import { useState, useCallback } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { GoalSection } from './components/GoalSection';
-import { ProblemSection } from './components/ProblemSection';
-import { SolutionSection } from './components/SolutionSection';
-import { PlatformModules } from './components/PlatformModules';
-import { CrucibleSection } from './components/CrucibleSection';
-import { ThoughtSection } from './components/ThoughtSection';
-import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { DemoModal } from './components/DemoModal';
+import { ScrollToTop } from './components/ScrollToTop';
+import { HomePage } from './pages/HomePage';
+import { PlatformPage } from './pages/PlatformPage';
+import { CruciblePage } from './pages/CruciblePage';
+import { ThoughtPage } from './pages/ThoughtPage';
 
 export function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
@@ -24,58 +22,35 @@ export function App() {
     setIsDemoModalOpen(false);
   }, []);
 
-  const handleExplorePlatform = useCallback(() => {
-    const el = document.getElementById('platform');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
-
   return (
-    <div className="landing-page-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* 3. Sticky / Floating Navigation */}
-      <Navbar onOpenDemo={handleOpenDemo} />
+    <BrowserRouter>
+      <ScrollToTop />
+      <div className="landing-page-root" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        {/* Sticky / Floating Navigation */}
+        <Navbar onOpenDemo={handleOpenDemo} />
 
-      {/* Main Narrative Flow */}
-      <main style={{ flexGrow: 1 }}>
-        {/* 4. Hero Section */}
-        <Hero onOpenDemo={handleOpenDemo} />
+        {/* Routed Pages */}
+        <main style={{ flexGrow: 1 }}>
+          <Routes>
+            <Route path="/" element={<HomePage onOpenDemo={handleOpenDemo} />} />
+            <Route path="/platform" element={<PlatformPage onOpenDemo={handleOpenDemo} />} />
+            <Route path="/crucible" element={<CruciblePage onOpenDemo={handleOpenDemo} />} />
+            <Route path="/thought" element={<ThoughtPage onOpenDemo={handleOpenDemo} />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
 
-        {/* 5. The Goal: A brighter tomorrow */}
-        <GoalSection />
+        {/* Footer */}
+        <Footer onOpenDemo={handleOpenDemo} />
 
-        {/* 6. The Problem: 70% Anxiety / 65% Overworked */}
-        <ProblemSection />
-
-        {/* 7. The Solution: GameUp AcademicOS & Stakeholder possibilities */}
-        <SolutionSection />
-
-        {/* 8. The Platform Modules & Interactive Product Catalog */}
-        <PlatformModules onOpenDemo={handleOpenDemo} />
-
-        {/* 9. The Crucible: One Day -> One Skill -> One Real Project & Workshops */}
-        <CrucibleSection onOpenDemo={handleOpenDemo} />
-
-        {/* 24-26. The Thought: Lift-off Progression, Vision, Mission, Team, and 5 Beliefs */}
-        <ThoughtSection />
-
-        {/* 27. Final CTA: Ready for lift-off? */}
-        <FinalCTA
-          onOpenDemo={handleOpenDemo}
-          onExplorePlatform={handleExplorePlatform}
+        {/* Interactive Booking Modal */}
+        <DemoModal
+          isOpen={isDemoModalOpen}
+          onClose={handleCloseDemo}
+          defaultTopic={demoTopic}
         />
-      </main>
-
-      {/* 28. Footer */}
-      <Footer onOpenDemo={handleOpenDemo} />
-
-      {/* Interactive Accessible Booking Modal */}
-      <DemoModal
-        isOpen={isDemoModalOpen}
-        onClose={handleCloseDemo}
-        defaultTopic={demoTopic}
-      />
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

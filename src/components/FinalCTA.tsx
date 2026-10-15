@@ -84,7 +84,6 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo }) => {
       <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <div style={{ maxWidth: '780px', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           <div className="eyebrow-container" style={{ marginBottom: '0' }}>
-            <span className="eyebrow-bar" />
             <span className="eyebrow-text">LIFT-OFF</span>
           </div>
 

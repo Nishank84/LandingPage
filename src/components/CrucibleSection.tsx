@@ -38,8 +38,8 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
         style={{
           backgroundColor: 'var(--nebula)',
           color: '#FFFFFF',
-          paddingTop: 'clamp(5rem, 9vw, 8rem)',
-          paddingBottom: 'clamp(5rem, 9vw, 7.5rem)',
+          paddingTop: 'calc(var(--nav-height) + clamp(2.5rem, 6vw, 4.5rem))',
+          paddingBottom: 'clamp(4.5rem, 8vw, 6.5rem)',
           position: 'relative',
           overflow: 'hidden'
         }}
@@ -81,7 +81,6 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ maxWidth: '820px' }}>
             <div className="eyebrow-container">
-              <span className="eyebrow-bar" style={{ backgroundColor: 'var(--coral)' }} />
               <span className="eyebrow-text eyebrow-text-coral">{CRUCIBLE_HERO.sectionLabel}</span>
             </div>
 
@@ -230,7 +229,6 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
         <div className="container">
           <div style={{ maxWidth: '780px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
             <div className="eyebrow-container">
-              <span className="eyebrow-bar eyebrow-bar-slate" />
               <span className="eyebrow-text eyebrow-text-slate">HANDS-ON IMMERSION</span>
             </div>
 
@@ -365,7 +363,6 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
         <div className="container">
           <div style={{ maxWidth: '800px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
             <div className="eyebrow-container">
-              <span className="eyebrow-bar eyebrow-bar-slate" />
               <span className="eyebrow-text eyebrow-text-slate">ENGAGEMENT ARCHITECTURE</span>
             </div>
 
@@ -460,7 +457,6 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = ({ onOpenDemo }) 
           {/* Why The Crucible Narrative */}
           <div style={{ maxWidth: '840px', marginBottom: 'clamp(4rem, 6vw, 6rem)' }}>
             <div className="eyebrow-container">
-              <span className="eyebrow-bar eyebrow-bar-slate" />
               <span className="eyebrow-text eyebrow-text-slate">{WHY_CRUCIBLE.title.toUpperCase()}</span>
             </div>
 

@@ -593,8 +593,8 @@ export const FOOTER_CONTENT = {
   linkedin: "https://www.linkedin.com/company/gameup-technologies/",
   email: "admin@gameup.tech",
   navLinks: [
-    { label: "The Platform", href: "#platform" },
-    { label: "The Crucible", href: "#crucible" },
-    { label: "The Thought", href: "#thought" }
+    { label: "The Platform", href: "/platform" },
+    { label: "The Crucible", href: "/crucible" },
+    { label: "The Thought", href: "/thought" }
   ]
 };

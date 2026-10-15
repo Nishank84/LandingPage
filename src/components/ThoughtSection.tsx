@@ -47,7 +47,6 @@ export const ThoughtSection: React.FC = () => {
             {/* Thought Narrative Left */}
             <div style={{ maxWidth: '620px' }}>
               <div className="eyebrow-container">
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">{THOUGHT_CONTENT.eyebrow}</span>
               </div>
 
@@ -226,7 +225,6 @@ export const ThoughtSection: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">{VISION_MISSION_TEAM.vision.label}</span>
               </div>
 
@@ -269,7 +267,6 @@ export const ThoughtSection: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">{VISION_MISSION_TEAM.mission.label}</span>
               </div>
 
@@ -312,7 +309,6 @@ export const ThoughtSection: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">{VISION_MISSION_TEAM.team.label}</span>
               </div>
 
@@ -344,7 +340,6 @@ export const ThoughtSection: React.FC = () => {
         <div className="container">
           <div style={{ maxWidth: '800px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
             <div className="eyebrow-container">
-              <span className="eyebrow-bar eyebrow-bar-slate" />
               <span className="eyebrow-text eyebrow-text-slate">WHAT WE BELIEVE</span>
             </div>
 

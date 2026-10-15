@@ -1,0 +1,251 @@
+{
+  "communities": {
+    "0": [
+      "eslint_config",
+      "package",
+      "package_dependencies",
+      "package_dependencies_lucide_react",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_name",
+      "package_private",
+      "package_type",
+      "package_version",
+      "ref_babel_core",
+      "ref_babel_plugin_react_compiler",
+      "ref_eslint",
+      "ref_eslint_js",
+      "ref_eslint_plugin_react_hooks",
+      "ref_eslint_plugin_react_refresh",
+      "ref_globals",
+      "ref_react_dom",
+      "ref_rolldown_plugin_babel",
+      "ref_types_babel_core",
+      "ref_types_node",
+      "ref_types_react",
+      "ref_types_react_dom",
+      "ref_typescript",
+      "ref_typescript_eslint",
+      "ref_vite",
+      "ref_vitejs_plugin_react",
+      "vite_config"
+    ],
+    "1": [
+      "ref_lucide_react",
+      "ref_react",
+      "src_app",
+      "src_app_app",
+      "src_components_cruciblesection_cruciblesection",
+      "src_components_demomodal",
+      "src_components_demomodal_demomodal",
+      "src_components_demomodal_demomodalprops",
+      "src_components_featuredeepdives",
+      "src_components_featuredeepdives_featuredeepdives",
+      "src_components_finalcta",
+      "src_components_finalcta_finalcta",
+      "src_components_finalcta_finalctaprops",
+      "src_components_goalsection",
+      "src_components_goalsection_goalsection",
+      "src_components_hero",
+      "src_components_hero_carousel_words",
+      "src_components_hero_hero",
+      "src_components_hero_heroprops",
+      "src_components_problemsection",
+      "src_components_problemsection_problemsection",
+      "src_components_solutionsection",
+      "src_components_solutionsection_solutionsection",
+      "src_data_content_goal_content",
+      "src_data_content_hero_content",
+      "src_data_content_problem_content",
+      "src_data_content_solution_content",
+      "src_main"
+    ],
+    "2": [
+      "src_components_cruciblesection",
+      "src_components_cruciblesection_cruciblesectionprops",
+      "src_components_cruciblesection_experienceicons",
+      "src_components_cruciblesection_workshopicons",
+      "src_components_thoughtsection",
+      "src_components_thoughtsection_belieficons",
+      "src_components_thoughtsection_levelicons",
+      "src_components_thoughtsection_thoughtsection",
+      "src_data_content",
+      "src_data_content_belief",
+      "src_data_content_beliefs_content",
+      "src_data_content_crucible_hero",
+      "src_data_content_crucible_outcome",
+      "src_data_content_crucible_workshops",
+      "src_data_content_growthlevel",
+      "src_data_content_program_experience",
+      "src_data_content_thought_content",
+      "src_data_content_vision_mission_team",
+      "src_data_content_why_crucible",
+      "src_data_content_workshop"
+    ],
+    "3": [
+      "tsconfig_app",
+      "tsconfig_app_compileroptions",
+      "tsconfig_app_compileroptions_allowarbitraryextensions",
+      "tsconfig_app_compileroptions_allowimportingtsextensions",
+      "tsconfig_app_compileroptions_erasablesyntaxonly",
+      "tsconfig_app_compileroptions_jsx",
+      "tsconfig_app_compileroptions_lib",
+      "tsconfig_app_compileroptions_module",
+      "tsconfig_app_compileroptions_moduledetection",
+      "tsconfig_app_compileroptions_moduleresolution",
+      "tsconfig_app_compileroptions_noemit",
+      "tsconfig_app_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_app_compileroptions_nounusedlocals",
+      "tsconfig_app_compileroptions_nounusedparameters",
+      "tsconfig_app_compileroptions_skiplibcheck",
+      "tsconfig_app_compileroptions_target",
+      "tsconfig_app_compileroptions_tsbuildinfofile",
+      "tsconfig_app_compileroptions_types",
+      "tsconfig_app_compileroptions_verbatimmodulesyntax",
+      "tsconfig_app_include"
+    ],
+    "4": [
+      "package_devdependencies",
+      "package_devdependencies_babel_core",
+      "package_devdependencies_babel_plugin_react_compiler",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_js",
+      "package_devdependencies_eslint_plugin_react_hooks",
+      "package_devdependencies_eslint_plugin_react_refresh",
+      "package_devdependencies_globals",
+      "package_devdependencies_rolldown_plugin_babel",
+      "package_devdependencies_types_babel_core",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_devdependencies_typescript_eslint",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitejs_plugin_react"
+    ],
+    "5": [
+      "tsconfig_node",
+      "tsconfig_node_compileroptions",
+      "tsconfig_node_compileroptions_allowimportingtsextensions",
+      "tsconfig_node_compileroptions_erasablesyntaxonly",
+      "tsconfig_node_compileroptions_lib",
+      "tsconfig_node_compileroptions_module",
+      "tsconfig_node_compileroptions_moduledetection",
+      "tsconfig_node_compileroptions_noemit",
+      "tsconfig_node_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_node_compileroptions_nounusedlocals",
+      "tsconfig_node_compileroptions_nounusedparameters",
+      "tsconfig_node_compileroptions_skiplibcheck",
+      "tsconfig_node_compileroptions_target",
+      "tsconfig_node_compileroptions_tsbuildinfofile",
+      "tsconfig_node_compileroptions_types",
+      "tsconfig_node_compileroptions_verbatimmodulesyntax",
+      "tsconfig_node_include"
+    ],
+    "6": [
+      "src_components_brandlogo",
+      "src_components_brandlogo_brandlogo",
+      "src_components_brandlogo_brandlogoprops",
+      "src_components_footer",
+      "src_components_footer_footer",
+      "src_components_footer_footerprops",
+      "src_components_navbar",
+      "src_components_navbar_navbar",
+      "src_components_navbar_navbarprops",
+      "src_data_content_footer_content"
+    ],
+    "7": [
+      "src_components_platformmodules",
+      "src_components_platformmodules_iconmap",
+      "src_components_platformmodules_platformmodules",
+      "src_components_platformmodules_platformmodulesprops",
+      "src_components_productmodal",
+      "src_components_productmodal_iconmap",
+      "src_components_productmodal_productmodal",
+      "src_components_productmodal_productmodalprops",
+      "src_data_content_platform_modules",
+      "src_data_content_platformmodule"
+    ],
+    "8": [
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview"
+    ],
+    "9": [
+      "tsconfig",
+      "tsconfig_files",
+      "tsconfig_references"
+    ]
+  },
+  "cohesion": {
+    "0": 0.0873015873015873,
+    "1": 0.12169312169312169,
+    "2": 0.14210526315789473,
+    "3": 0.1,
+    "4": 0.11764705882352941,
+    "5": 0.11764705882352941,
+    "6": 0.24444444444444444,
+    "7": 0.24444444444444444,
+    "8": 0.4,
+    "9": 0.6666666666666666
+  },
+  "gods": [
+    {
+      "id": "tsconfig_app_compileroptions",
+      "label": "compilerOptions",
+      "degree": 18
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "degree": 17
+    },
+    {
+      "id": "tsconfig_node_compileroptions",
+      "label": "compilerOptions",
+      "degree": 15
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "degree": 13
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 5
+    },
+    {
+      "id": "src_components_brandlogo_brandlogo",
+      "label": "BrandLogo()",
+      "degree": 3
+    },
+    {
+      "id": "src_data_content_platform_modules",
+      "label": "PLATFORM_MODULES",
+      "degree": 3
+    },
+    {
+      "id": "ref_eslint_js",
+      "label": "@eslint/js",
+      "degree": 2
+    },
+    {
+      "id": "ref_rolldown_plugin_babel",
+      "label": "@rolldown/plugin-babel",
+      "degree": 2
+    },
+    {
+      "id": "ref_vitejs_plugin_react",
+      "label": "@vitejs/plugin-react",
+      "degree": 2
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

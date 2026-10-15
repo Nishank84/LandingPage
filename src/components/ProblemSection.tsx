@@ -33,7 +33,6 @@ export const ProblemSection: React.FC = () => {
         {/* Section Header */}
         <div style={{ maxWidth: '720px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
           <div className="eyebrow-container">
-            <span className="eyebrow-bar" style={{ backgroundColor: 'var(--coral)' }} />
             <span className="eyebrow-text eyebrow-text-coral">{PROBLEM_CONTENT.eyebrow}</span>
           </div>
 

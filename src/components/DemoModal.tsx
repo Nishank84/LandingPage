@@ -125,7 +125,6 @@ export const DemoModal: React.FC<DemoModalProps> = ({
           <div>
             <div style={{ marginBottom: '1.75rem' }}>
               <div className="eyebrow-container" style={{ marginBottom: '0.75rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">GET STARTED</span>
               </div>
               <h2

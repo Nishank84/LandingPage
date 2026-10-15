@@ -14,7 +14,6 @@ export const GoalSection: React.FC = () => {
         <div style={{ maxWidth: '840px' }}>
           {/* Editorial Statement */}
           <div className="eyebrow-container">
-            <span className="eyebrow-bar eyebrow-bar-slate" />
             <span className="eyebrow-text eyebrow-text-slate">{GOAL_CONTENT.eyebrow}</span>
           </div>
 

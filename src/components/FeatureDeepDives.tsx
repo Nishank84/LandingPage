@@ -61,7 +61,6 @@ export const FeatureDeepDives: React.FC = () => {
             {/* Left Copy */}
             <div>
               <div className="eyebrow-container">
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">ACADEMIC INTEGRITY</span>
               </div>
 
@@ -376,7 +375,6 @@ export const FeatureDeepDives: React.FC = () => {
             {/* Right Copy */}
             <div>
               <div className="eyebrow-container">
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">GAMIFIED PROGRESS</span>
               </div>
 
@@ -488,7 +486,6 @@ export const FeatureDeepDives: React.FC = () => {
             {/* Left Copy */}
             <div>
               <div className="eyebrow-container">
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">CURRICULUM INTELLIGENCE</span>
               </div>
 
@@ -781,7 +778,6 @@ export const FeatureDeepDives: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">SHARED KNOWLEDGE</span>
               </div>
 
@@ -883,7 +879,6 @@ export const FeatureDeepDives: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">SKILL ACCELERATION</span>
               </div>
 
@@ -994,7 +989,6 @@ export const FeatureDeepDives: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">COMMUNITY CULTURE</span>
               </div>
 
@@ -1090,7 +1084,6 @@ export const FeatureDeepDives: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">REAL-TIME TELEMETRY</span>
               </div>
 
@@ -1212,7 +1205,6 @@ export const FeatureDeepDives: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">CAMPUS OPERATIONS</span>
               </div>
 
@@ -1302,7 +1294,6 @@ export const FeatureDeepDives: React.FC = () => {
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">INSTANT PARENT CONNECTION</span>
               </div>
 
@@ -1395,7 +1386,6 @@ export const FeatureDeepDives: React.FC = () => {
           >
             <div style={{ maxWidth: '800px', position: 'relative', zIndex: 10 }}>
               <div className="eyebrow-container">
-                <span className="eyebrow-bar" />
                 <span className="eyebrow-text">EXPANDING HORIZONS</span>
               </div>
 

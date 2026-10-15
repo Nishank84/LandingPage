@@ -144,14 +144,7 @@ a {
 }
 
 .eyebrow-bar {
-  width: 32px;
-  height: 2px;
-  background-color: var(--sun);
-  border-radius: 2px;
-}
-
-.eyebrow-bar-slate {
-  background-color: var(--slate);
+  display: none;
 }
 
 .eyebrow-text {

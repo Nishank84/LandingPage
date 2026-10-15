@@ -18,7 +18,6 @@ export const SolutionSection: React.FC = () => {
         {/* New Section Hero Header: The Solution */}
         <div style={{ maxWidth: '820px', marginBottom: 'clamp(2.5rem, 4.5vw, 3.5rem)' }}>
           <div className="eyebrow-container" style={{ marginBottom: '0.75rem' }}>
-            <span className="eyebrow-bar eyebrow-bar-slate" />
             <span className="eyebrow-text eyebrow-text-slate">THE SOLUTION</span>
           </div>
 
@@ -181,7 +180,6 @@ export const SolutionSection: React.FC = () => {
           >
             <div>
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
-                <span className="eyebrow-bar eyebrow-bar-slate" />
                 <span className="eyebrow-text eyebrow-text-slate">WHO WE SERVE</span>
               </div>
               <h3

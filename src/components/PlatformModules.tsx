@@ -58,9 +58,7 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto clamp(3rem, 5vw, 4.5rem) auto' }}>
           <div className="eyebrow-container" style={{ justifyContent: 'center', marginBottom: '0.75rem' }}>
-            <span className="eyebrow-bar eyebrow-bar-slate" />
             <span className="eyebrow-text eyebrow-text-slate">THE CONNECTED ECOSYSTEM</span>
-            <span className="eyebrow-bar eyebrow-bar-slate" />
           </div>
 
           <h2

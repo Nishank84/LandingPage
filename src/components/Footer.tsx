@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FOOTER_CONTENT } from '../data/content';
 import { BrandLogo } from './BrandLogo';
 import { Mail, ArrowUp } from 'lucide-react';
@@ -8,6 +9,8 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -15,6 +18,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
   const handleNavClick = (href: string) => {
     if (href === '#demo') {
       onOpenDemo('Footer Link');
+      return;
+    }
+    if (href.startsWith('/')) {
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
     const target = document.querySelector(href);
@@ -46,7 +54,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
         >
           {/* Brand Info Left */}
           <div style={{ maxWidth: '380px' }}>
-            <BrandLogo variant="dark" showTagline={false} size="md" />
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                navigate('/');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{ display: 'inline-flex' }}
+              aria-label="GameUp Home"
+            >
+              <BrandLogo variant="dark" showTagline={false} size="md" />
+            </a>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '1.25rem' }}>
               <a

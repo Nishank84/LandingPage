@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Menu, X, ArrowUpRight, ArrowLeft } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {
@@ -7,6 +8,8 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,17 +52,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
   }, [mobileMenuOpen]);
 
   const navItems = [
-    { label: 'The Platform', href: '#platform' },
-    { label: 'The Crucible', href: '#crucible' },
-    { label: 'The Thought', href: '#thought' }
+    { label: 'The Platform', path: '/platform' },
+    { label: 'The Crucible', path: '/crucible' },
+    { label: 'The Thought', path: '/thought' }
   ];
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (path: string) => {
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -92,9 +93,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {/* Brand Logo */}
           <a
-            href="#"
+            href="/"
             onClick={(e) => {
               e.preventDefault();
+              navigate('/');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             aria-label="GameUp Home"
@@ -123,30 +125,70 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
                 border: '1px solid rgba(255, 255, 255, 0.1)'
               }}
             >
-              {navItems.map((item) => (
+              {location.pathname !== '/' && (
                 <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  onClick={() => handleNavClick('/')}
                   style={{
                     fontFamily: 'var(--font-text)',
                     fontSize: '0.875rem',
                     fontWeight: 600,
-                    color: '#FFFFFF',
-                    padding: '8px 18px',
+                    color: 'var(--mist)',
+                    padding: '8px 14px',
                     borderRadius: '999px',
                     transition: 'all 0.2s ease',
-                    background: 'transparent'
+                    background: 'transparent',
+                    border: '1px solid transparent',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    cursor: 'pointer'
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+                    e.currentTarget.style.color = '#FFFFFF';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = 'var(--mist)';
                   }}
                 >
-                  {item.label}
+                  <ArrowLeft size={14} />
+                  <span>Home</span>
                 </button>
-              ))}
+              )}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.path;
+                return (
+                  <button
+                    key={item.path}
+                    onClick={() => handleNavClick(item.path)}
+                    style={{
+                      fontFamily: 'var(--font-text)',
+                      fontSize: '0.875rem',
+                      fontWeight: isActive ? 700 : 600,
+                      color: isActive ? 'var(--sun)' : '#FFFFFF',
+                      padding: '8px 18px',
+                      borderRadius: '999px',
+                      transition: 'all 0.2s ease',
+                      background: isActive ? 'rgba(255, 255, 255, 0.16)' : 'transparent',
+                      border: isActive ? '1px solid rgba(255, 178, 36, 0.35)' : '1px solid transparent',
+                      cursor: 'pointer'
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.12)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }
+                    }}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
             </div>
 
             <button
@@ -206,25 +248,52 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
           }}
           className="mobile-drawer"
         >
-          {navItems.map((item) => (
+          {location.pathname !== '/' && (
             <button
-              key={item.href}
-              onClick={() => handleNavClick(item.href)}
+              onClick={() => handleNavClick('/')}
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '1.125rem',
                 fontWeight: 600,
-                color: '#FFFFFF',
+                color: 'var(--mist)',
                 textAlign: 'left',
                 padding: '12px 16px',
                 borderRadius: '12px',
                 backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.08)'
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px'
               }}
             >
-              {item.label}
+              <ArrowLeft size={16} />
+              <span>Back to Home</span>
             </button>
-          ))}
+          )}
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <button
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
+                style={{
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.125rem',
+                  fontWeight: isActive ? 700 : 600,
+                  color: isActive ? 'var(--sun)' : '#FFFFFF',
+                  textAlign: 'left',
+                  padding: '12px 16px',
+                  borderRadius: '12px',
+                  backgroundColor: isActive ? 'rgba(255, 255, 255, 0.15)' : 'rgba(255, 255, 255, 0.05)',
+                  border: isActive ? '1px solid rgba(255, 178, 36, 0.35)' : '1px solid rgba(255, 255, 255, 0.08)',
+                  cursor: 'pointer'
+                }}
+              >
+                {item.label}
+              </button>
+            );
+          })}
 
           <button
             onClick={() => {
