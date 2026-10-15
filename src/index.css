@@ -360,3 +360,113 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--slate);
 }
+
+/* Crucible 5-Stage Progression Section */
+.crucible-progression-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .crucible-progression-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .crucible-progression-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+.crucible-progression-card {
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 18px;
+  padding: clamp(1.25rem, 2vh, 1.75rem) clamp(1rem, 1.25vw, 1.35rem);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.crucible-progression-card:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 196, 75, 0.45);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 107, 77, 0.15);
+}
+
+.crucible-progression-stage-badge {
+  font-family: var(--font-text);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--sun);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.crucible-progression-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.6vw, 1.625rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.crucible-progression-desc {
+  font-size: 0.9375rem;
+  color: var(--mist);
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* 3-Column Balanced Grid (3 in Row 1, 3 in Row 2) */
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (min-width: 640px) {
+  .grid-3col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+}
+
+/* Typewriter Cursor */
+@keyframes typewriterBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.15em;
+  background-color: var(--coral);
+  margin-left: 6px;
+  vertical-align: -0.1em;
+  animation: typewriterBlink 0.8s infinite;
+}

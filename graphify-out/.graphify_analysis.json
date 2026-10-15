@@ -1,38 +1,42 @@
 {
   "communities": {
     "0": [
-      "eslint_config",
-      "package",
-      "package_dependencies",
-      "package_dependencies_lucide_react",
-      "package_dependencies_react",
-      "package_dependencies_react_dom",
-      "package_name",
-      "package_private",
-      "package_type",
-      "package_version",
-      "ref_babel_core",
-      "ref_babel_plugin_react_compiler",
-      "ref_eslint",
-      "ref_eslint_js",
-      "ref_eslint_plugin_react_hooks",
-      "ref_eslint_plugin_react_refresh",
-      "ref_globals",
-      "ref_react_dom",
-      "ref_rolldown_plugin_babel",
-      "ref_types_babel_core",
-      "ref_types_node",
-      "ref_types_react",
-      "ref_types_react_dom",
-      "ref_typescript",
-      "ref_typescript_eslint",
-      "ref_vite",
-      "ref_vitejs_plugin_react",
-      "vite_config"
+      "babel_core",
+      "babel_plugin_react_compiler",
+      "eslint",
+      "eslint_js",
+      "eslint_plugin_react_hooks",
+      "eslint_plugin_react_refresh",
+      "globals",
+      "package_devdependencies",
+      "package_devdependencies_babel_core",
+      "package_devdependencies_babel_plugin_react_compiler",
+      "package_devdependencies_eslint",
+      "package_devdependencies_eslint_js",
+      "package_devdependencies_eslint_plugin_react_hooks",
+      "package_devdependencies_eslint_plugin_react_refresh",
+      "package_devdependencies_globals",
+      "package_devdependencies_rolldown_plugin_babel",
+      "package_devdependencies_types_babel_core",
+      "package_devdependencies_types_node",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_devdependencies_typescript_eslint",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitejs_plugin_react",
+      "rolldown_plugin_babel",
+      "types_babel_core",
+      "types_node",
+      "types_react",
+      "types_react_dom",
+      "typescript",
+      "typescript_eslint",
+      "vite",
+      "vitejs_plugin_react"
     ],
     "1": [
-      "ref_lucide_react",
-      "ref_react",
+      "index_html_root",
       "src_app",
       "src_app_app",
       "src_components_cruciblesection_cruciblesection",
@@ -41,22 +45,20 @@
       "src_components_demomodal_demomodalprops",
       "src_components_featuredeepdives",
       "src_components_featuredeepdives_featuredeepdives",
-      "src_components_finalcta",
-      "src_components_finalcta_finalcta",
-      "src_components_finalcta_finalctaprops",
       "src_components_goalsection",
       "src_components_goalsection_goalsection",
       "src_components_hero",
-      "src_components_hero_carousel_words",
       "src_components_hero_hero",
       "src_components_hero_heroprops",
-      "src_components_problemsection",
-      "src_components_problemsection_problemsection",
+      "src_components_platformmodules",
+      "src_components_platformmodules_iconmap",
+      "src_components_platformmodules_platformmodules",
+      "src_components_platformmodules_platformmodulesprops",
       "src_components_solutionsection",
       "src_components_solutionsection_solutionsection",
       "src_data_content_goal_content",
       "src_data_content_hero_content",
-      "src_data_content_problem_content",
+      "src_data_content_platform_modules",
       "src_data_content_solution_content",
       "src_main"
     ],
@@ -64,7 +66,10 @@
       "src_components_cruciblesection",
       "src_components_cruciblesection_cruciblesectionprops",
       "src_components_cruciblesection_experienceicons",
+      "src_components_cruciblesection_stageicons",
       "src_components_cruciblesection_workshopicons",
+      "src_components_problemsection",
+      "src_components_problemsection_problemsection",
       "src_components_thoughtsection",
       "src_components_thoughtsection_belieficons",
       "src_components_thoughtsection_levelicons",
@@ -76,6 +81,8 @@
       "src_data_content_crucible_outcome",
       "src_data_content_crucible_workshops",
       "src_data_content_growthlevel",
+      "src_data_content_platformmodule",
+      "src_data_content_problem_content",
       "src_data_content_program_experience",
       "src_data_content_thought_content",
       "src_data_content_vision_mission_team",
@@ -83,6 +90,9 @@
       "src_data_content_workshop"
     ],
     "3": [
+      "ref_dom",
+      "ref_src",
+      "ref_vite_client",
       "tsconfig_app",
       "tsconfig_app_compileroptions",
       "tsconfig_app_compileroptions_allowarbitraryextensions",
@@ -102,28 +112,12 @@
       "tsconfig_app_compileroptions_tsbuildinfofile",
       "tsconfig_app_compileroptions_types",
       "tsconfig_app_compileroptions_verbatimmodulesyntax",
-      "tsconfig_app_include"
+      "tsconfig_app_include",
+      "tsconfig_app_json_ref_es2023"
     ],
     "4": [
-      "package_devdependencies",
-      "package_devdependencies_babel_core",
-      "package_devdependencies_babel_plugin_react_compiler",
-      "package_devdependencies_eslint",
-      "package_devdependencies_eslint_js",
-      "package_devdependencies_eslint_plugin_react_hooks",
-      "package_devdependencies_eslint_plugin_react_refresh",
-      "package_devdependencies_globals",
-      "package_devdependencies_rolldown_plugin_babel",
-      "package_devdependencies_types_babel_core",
-      "package_devdependencies_types_node",
-      "package_devdependencies_types_react",
-      "package_devdependencies_types_react_dom",
-      "package_devdependencies_typescript",
-      "package_devdependencies_typescript_eslint",
-      "package_devdependencies_vite",
-      "package_devdependencies_vitejs_plugin_react"
-    ],
-    "5": [
+      "ref_node",
+      "ref_vite_config_ts",
       "tsconfig_node",
       "tsconfig_node_compileroptions",
       "tsconfig_node_compileroptions_allowimportingtsextensions",
@@ -140,12 +134,35 @@
       "tsconfig_node_compileroptions_tsbuildinfofile",
       "tsconfig_node_compileroptions_types",
       "tsconfig_node_compileroptions_verbatimmodulesyntax",
-      "tsconfig_node_include"
+      "tsconfig_node_include",
+      "tsconfig_node_json_ref_es2023"
+    ],
+    "5": [
+      "lucide_react",
+      "package",
+      "package_dependencies",
+      "package_dependencies_lucide_react",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_lint",
+      "package_scripts_preview",
+      "package_type",
+      "package_version",
+      "react",
+      "react_dom"
     ],
     "6": [
       "src_components_brandlogo",
       "src_components_brandlogo_brandlogo",
       "src_components_brandlogo_brandlogoprops",
+      "src_components_finalcta",
+      "src_components_finalcta_finalcta",
+      "src_components_finalcta_finalctaprops",
       "src_components_footer",
       "src_components_footer_footer",
       "src_components_footer_footerprops",
@@ -155,41 +172,50 @@
       "src_data_content_footer_content"
     ],
     "7": [
-      "src_components_platformmodules",
-      "src_components_platformmodules_iconmap",
-      "src_components_platformmodules_platformmodules",
-      "src_components_platformmodules_platformmodulesprops",
-      "src_components_productmodal",
-      "src_components_productmodal_iconmap",
-      "src_components_productmodal_productmodal",
-      "src_components_productmodal_productmodalprops",
-      "src_data_content_platform_modules",
-      "src_data_content_platformmodule"
+      "index_html_crucible",
+      "index_html_gameup_platform",
+      "public_favicon_icon",
+      "src_assets_hero_isometric_layers"
     ],
     "8": [
-      "package_scripts",
-      "package_scripts_build",
-      "package_scripts_dev",
-      "package_scripts_lint",
-      "package_scripts_preview"
+      "readme_react_compiler",
+      "readme_vite_template",
+      "src_assets_react_logo",
+      "src_assets_vite_logo"
     ],
     "9": [
       "tsconfig",
       "tsconfig_files",
       "tsconfig_references"
+    ],
+    "10": [
+      "eslint_config"
+    ],
+    "11": [
+      "public_icons_sprites"
+    ],
+    "12": [
+      "readme_eslint_config"
+    ],
+    "13": [
+      "vite_config"
     ]
   },
   "cohesion": {
-    "0": 0.0873015873015873,
-    "1": 0.12169312169312169,
-    "2": 0.14210526315789473,
-    "3": 0.1,
-    "4": 0.11764705882352941,
+    "0": 0.06060606060606061,
+    "1": 0.10333333333333333,
+    "2": 0.11,
+    "3": 0.08333333333333333,
+    "4": 0.1,
     "5": 0.11764705882352941,
-    "6": 0.24444444444444444,
-    "7": 0.24444444444444444,
-    "8": 0.4,
-    "9": 0.6666666666666666
+    "6": 0.19230769230769232,
+    "7": 0.5,
+    "8": 0.5,
+    "9": 0.6666666666666666,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0,
+    "13": 1.0
   },
   "gods": [
     {
@@ -198,19 +224,9 @@
       "degree": 18
     },
     {
-      "id": "ref_react",
-      "label": "react",
-      "degree": 17
-    },
-    {
       "id": "tsconfig_node_compileroptions",
       "label": "compilerOptions",
       "degree": 15
-    },
-    {
-      "id": "ref_lucide_react",
-      "label": "lucide-react",
-      "degree": 13
     },
     {
       "id": "package_scripts",
@@ -220,32 +236,120 @@
     {
       "id": "src_components_brandlogo_brandlogo",
       "label": "BrandLogo()",
+      "degree": 4
+    },
+    {
+      "id": "tsconfig_app_compileroptions_lib",
+      "label": "lib",
       "degree": 3
     },
     {
-      "id": "src_data_content_platform_modules",
-      "label": "PLATFORM_MODULES",
+      "id": "readme_vite_template",
+      "label": "Vite React Template",
       "degree": 3
     },
     {
-      "id": "ref_eslint_js",
-      "label": "@eslint/js",
+      "id": "index_html_gameup_platform",
+      "label": "GameUp AcademicOS",
+      "degree": 3
+    },
+    {
+      "id": "package_dependencies_lucide_react",
+      "label": "lucide-react",
       "degree": 2
     },
     {
-      "id": "ref_rolldown_plugin_babel",
-      "label": "@rolldown/plugin-babel",
+      "id": "package_dependencies_react",
+      "label": "react",
       "degree": 2
     },
     {
-      "id": "ref_vitejs_plugin_react",
-      "label": "@vitejs/plugin-react",
+      "id": "package_dependencies_react_dom",
+      "label": "react-dom",
       "degree": 2
     }
   ],
-  "surprises": [],
-  "tokens": {
-    "input": 0,
-    "output": 0
-  }
+  "surprises": [
+    {
+      "source": "Isometric Platform Graphic",
+      "target": "GameUp AcademicOS",
+      "source_files": [
+        "src/assets/hero.png",
+        "index.html"
+      ],
+      "confidence": "INFERRED",
+      "relation": "conceptually_related_to",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (doc ↔ image); connects across different repos/directories"
+    },
+    {
+      "source": "React Framework Logo",
+      "target": "Vite React Template",
+      "source_files": [
+        "src/assets/react.svg",
+        "README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "conceptually_related_to",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
+    },
+    {
+      "source": "Vite Bundler Logo",
+      "target": "Vite React Template",
+      "source_files": [
+        "src/assets/vite.svg",
+        "README.md"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "conceptually_related_to",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
+    },
+    {
+      "source": "GameUp AcademicOS",
+      "target": "Favicon Brand Icon",
+      "source_files": [
+        "index.html",
+        "public/favicon.svg"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (doc ↔ image); connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `Community 0` to `Community 5`?",
+      "why": "High betweenness centrality (0.070) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `name`, `private`, `version` to the rest of the system?",
+      "why": "90 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 0` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 1` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 2` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.11 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 3` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Community 4` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.1 - nodes in this community are weakly interconnected."
+    }
+  ]
 }
