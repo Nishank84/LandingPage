@@ -116,7 +116,6 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo }) => {
             <button
               onClick={() => onOpenDemo('Final CTA Booking')}
               className="btn-primary"
-              style={{ height: '54px', padding: '0 32px', fontSize: '1rem' }}
             >
               Book a demo
               <ArrowRight size={18} />

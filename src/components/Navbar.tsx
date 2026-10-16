@@ -99,7 +99,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
               navigate('/');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            aria-label="GameUp Home"
+            aria-label="Game Up Home"
             style={{ display: 'flex', alignItems: 'center' }}
           >
             <BrandLogo variant="dark" showTagline={false} size="md" />

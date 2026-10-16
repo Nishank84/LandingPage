@@ -72,7 +72,7 @@ export const ThoughtPage: React.FC<ThoughtPageProps> = ({ onOpenDemo }) => {
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ maxWidth: '880px' }}>
             <div className="eyebrow-container" style={{ marginBottom: '1.25rem' }}>
-              <span className="eyebrow-text" style={{ color: 'var(--sun)' }}>
+              <span className="eyebrow-text">
                 THE PHILOSOPHY
               </span>
             </div>
@@ -88,7 +88,7 @@ export const ThoughtPage: React.FC<ThoughtPageProps> = ({ onOpenDemo }) => {
                 marginBottom: '1.5rem'
               }}
             >
-              The Thought <span className="text-gradient">Behind GameUp.</span>
+              The Thought Behind <span className="text-gradient">Game Up.</span>
             </h1>
 
             <p

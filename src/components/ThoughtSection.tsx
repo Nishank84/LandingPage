@@ -13,14 +13,14 @@ import {
   Heart,
   TrendingUp,
   Sparkles,
-  Users2,
+  Users,
   Eye,
   Target,
   Smile
 } from 'lucide-react';
 
 const levelIcons = [Lightbulb, BookOpen, Sprout, Rocket];
-const beliefIcons = [Compass, Heart, TrendingUp, Sparkles, Users2];
+const beliefIcons = [Compass, Heart, TrendingUp, Sparkles, Users];
 
 export const ThoughtSection: React.FC = () => {
   return (
@@ -358,7 +358,7 @@ export const ThoughtSection: React.FC = () => {
             </h3>
 
             <p style={{ fontSize: '1.0625rem', color: 'var(--slate)', lineHeight: 1.65 }}>
-              How we build and why we build it: principles guiding every tool in GameUp AcademicOS.
+              How we build and why we build it: principles guiding every tool in Game Up AcademicOS.
             </p>
           </div>
 

@@ -14,6 +14,20 @@
   --line: #2B3470;
   --line-light: #E3E7EE;
 
+  /* Audience 12% Tints (Locked) */
+  --tile-blue: #E7F0FE;
+  --tile-coral: #FFEDEA;
+  --tile-mint: #E2F8F4;
+  --tile-sun: #FFF8E7;
+  --tile-purple: #F3EAFD;
+
+  /* Audience Ink Colors (WCAG AA Accessible) */
+  --ink-blue: #3B82F6;
+  --ink-coral: #CF2300;
+  --ink-mint: #0A7760;
+  --ink-sun: #906100;
+  --ink-purple: #7841F5;
+
   /* Semantic UI Tokens */
   --background: #FFFFFF;
   --foreground: var(--nebula);
@@ -22,7 +36,7 @@
   --secondary: var(--cloud);
   --secondary-foreground: var(--nebula);
   --accent: var(--coral);
-  --accent-foreground: #FFFFFF;
+  --accent-foreground: var(--nebula);
   --muted: var(--slate);
   --border: var(--line-light);
   --card: #FFFFFF;
@@ -103,8 +117,9 @@ a {
   font-family: var(--font-text);
 }
 
+/* Brand Gradient (Stop at 45% per brand guidelines. Nebula only!) */
 .text-gradient {
-  background-image: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 50%, #FF6B4D 100%);
+  background-image: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 45%, #FF6B4D 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -135,16 +150,15 @@ a {
   padding-bottom: clamp(4.5rem, 9vw, 8rem);
 }
 
-/* Eyebrow Label */
+/* Eyebrow Label (Tracked 0.2em, without leading hyphens/bars) */
 .eyebrow-container {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
   margin-bottom: 1.25rem;
 }
 
 .eyebrow-bar {
-  display: none;
+  display: none !important;
 }
 
 .eyebrow-text {
@@ -164,19 +178,27 @@ a {
   color: var(--coral);
 }
 
-/* Buttons */
+.eyebrow-text-purple {
+  color: var(--purple);
+}
+
+.eyebrow-text-blue {
+  color: var(--blue);
+}
+
+/* Buttons (Coral pill with #131A3D Nebula Navy text per brand guidelines) */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 50px;
+  height: 48px;
   padding: 0 28px;
   border-radius: var(--radius-full);
   background-color: var(--coral);
   color: var(--nebula);
   font-family: var(--font-text);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -198,21 +220,20 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 50px;
+  height: 48px;
   padding: 0 28px;
   border-radius: var(--radius-full);
   background-color: transparent;
   color: #FFFFFF;
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.3);
+  border: 2px solid #FFFFFF;
   font-family: var(--font-text);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   transition: all 0.25s ease;
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.12);
   transform: translateY(-2px);
 }
 
@@ -221,23 +242,84 @@ a {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  height: 50px;
+  height: 48px;
   padding: 0 28px;
   border-radius: var(--radius-full);
-  background-color: var(--cloud);
+  background-color: transparent;
   color: var(--nebula);
-  box-shadow: inset 0 0 0 1px var(--line-light);
+  border: 2px solid var(--nebula);
   font-family: var(--font-text);
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   transition: all 0.25s ease;
 }
 
 .btn-secondary-light:hover {
-  background-color: #FFFFFF;
-  box-shadow: inset 0 0 0 1px var(--purple), var(--shadow-sm);
-  color: var(--purple);
+  background-color: var(--nebula);
+  color: #FFFFFF;
   transform: translateY(-2px);
+}
+
+/* Audience 12% Tint Icon Tiles */
+.icon-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.icon-tile-sm {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-tile-lg {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.icon-tile-blue {
+  background-color: var(--tile-blue);
+  color: var(--ink-blue);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+.icon-tile-coral {
+  background-color: var(--tile-coral);
+  color: var(--ink-coral);
+  border: 1px solid rgba(255, 107, 77, 0.2);
+}
+
+.icon-tile-mint {
+  background-color: var(--tile-mint);
+  color: var(--ink-mint);
+  border: 1px solid rgba(16, 199, 161, 0.2);
+}
+
+.icon-tile-sun {
+  background-color: var(--tile-sun);
+  color: var(--ink-sun);
+  border: 1px solid rgba(255, 196, 75, 0.25);
+}
+
+.icon-tile-purple {
+  background-color: var(--tile-purple);
+  color: var(--ink-purple);
+  border: 1px solid rgba(139, 92, 246, 0.18);
 }
 
 /* Card Surface Treatments */
@@ -383,12 +465,10 @@ a {
 }
 
 .crucible-progression-card {
-  background-color: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 18px;
+  background-color: var(--deep);
+  border-radius: 16px;
   padding: clamp(1.25rem, 2vh, 1.75rem) clamp(1rem, 1.25vw, 1.35rem);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--line);
   position: relative;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
@@ -397,8 +477,8 @@ a {
 
 .crucible-progression-card:hover {
   transform: translateY(-4px);
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 196, 75, 0.45);
+  background-color: #242E64;
+  border-color: rgba(255, 196, 75, 0.5);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 107, 77, 0.15);
 }
 
@@ -451,6 +531,36 @@ a {
   }
 }
 
+/* 5x2 Product Modules Grid (5 columns on desktop, 2 rows for 10 cards) */
+.grid-5x2 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 600px) {
+  .grid-5x2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 860px) {
+  .grid-5x2 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid-5x2 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
 /* Typewriter Cursor */
 @keyframes typewriterBlink {
   0%, 100% {
@@ -469,4 +579,184 @@ a {
   margin-left: 6px;
   vertical-align: -0.1em;
   animation: typewriterBlink 0.8s infinite;
+}
+
+/* Product Catalog Modal - Responsive Mobile UX */
+.product-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(10, 15, 40, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@media (min-width: 768px) {
+  .product-modal-backdrop {
+    padding: clamp(8px, 1.5vw, 18px);
+  }
+}
+
+.product-modal-dialog {
+  width: 100%;
+  height: 100%;
+  max-height: 100dvh;
+  background-color: #FFFFFF;
+  border-radius: 0;
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .product-modal-dialog {
+    width: min(1420px, 97vw);
+    height: min(940px, 95vh);
+    border-radius: 24px;
+    border: 1px solid rgba(19, 26, 61, 0.1);
+  }
+}
+
+/* Modal Header Bar */
+.product-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-light);
+  background-color: #FFFFFF;
+  flex-shrink: 0;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .product-modal-header {
+    padding: 16px 28px;
+  }
+}
+
+.product-modal-header-brand {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .product-modal-header-brand {
+    display: inline;
+  }
+}
+
+/* Modal Split Body */
+.product-modal-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .product-modal-body {
+    flex-direction: row;
+  }
+}
+
+/* Desktop Sidebar */
+.product-modal-sidebar-desktop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .product-modal-sidebar-desktop {
+    display: flex;
+    flex-direction: column;
+    width: clamp(280px, 22vw, 340px);
+    flex-shrink: 0;
+    background-color: var(--cloud);
+    border-right: 1px solid var(--line-light);
+    overflow-y: auto;
+    padding: 16px 12px;
+    gap: 6px;
+  }
+}
+
+/* Mobile Horizontal Scrollable Pill Bar */
+.product-modal-nav-mobile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: var(--cloud);
+  border-bottom: 1px solid var(--line-light);
+  overflow-x: auto;
+  flex-shrink: 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.product-modal-nav-mobile::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .product-modal-nav-mobile {
+    display: none;
+  }
+}
+
+.product-modal-mobile-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  border: 1px solid var(--line-light);
+  background-color: #FFFFFF;
+  color: var(--nebula);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.product-modal-mobile-chip.active {
+  background-color: var(--nebula);
+  color: #FFFFFF;
+  border-color: var(--nebula);
+}
+
+/* Main Content Area */
+.product-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 768px) {
+  .product-modal-content {
+    padding: clamp(2rem, 3.5vw, 3.25rem);
+  }
+}
+
+.product-modal-mockup-card {
+  border-radius: 16px;
+  padding: 1.25rem 1rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .product-modal-mockup-card {
+    border-radius: 20px;
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+  }
 }

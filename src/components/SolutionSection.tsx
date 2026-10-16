@@ -1,9 +1,9 @@
 import React from 'react';
 import { SOLUTION_CONTENT } from '../data/content';
-import { ArrowRight, Check, Sparkles, Layers, ShieldCheck, Heart, UserCheck } from 'lucide-react';
+import { ArrowRight, Check, GraduationCap, Presentation, School, Heart, UserCheck } from 'lucide-react';
 
 export const SolutionSection: React.FC = () => {
-  const stakeholderIconList = [Sparkles, Layers, ShieldCheck, Heart];
+  const stakeholderIconList = [GraduationCap, Presentation, School, Heart];
 
   return (
     <section
@@ -32,7 +32,7 @@ export const SolutionSection: React.FC = () => {
               marginBottom: '1rem'
             }}
           >
-            Serious tech. <span className="text-gradient">Playful experience.</span>
+            Serious tech. Playful experience.
           </h2>
 
           <p

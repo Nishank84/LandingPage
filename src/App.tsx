@@ -11,9 +11,9 @@ import { ThoughtPage } from './pages/ThoughtPage';
 
 export function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
-  const [demoTopic, setDemoTopic] = useState('GameUp AcademicOS');
+  const [demoTopic, setDemoTopic] = useState('Game Up AcademicOS');
 
-  const handleOpenDemo = useCallback((topic = 'GameUp AcademicOS') => {
+  const handleOpenDemo = useCallback((topic = 'Game Up AcademicOS') => {
     setDemoTopic(topic);
     setIsDemoModalOpen(true);
   }, []);

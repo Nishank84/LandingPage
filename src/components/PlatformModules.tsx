@@ -3,16 +3,17 @@ import { PLATFORM_MODULES } from '../data/content';
 import { ProductModal } from './ProductModal';
 import {
   ClipboardCheck,
-  Target,
-  Sparkles,
-  BookOpen,
-  Dumbbell,
-  HeartHandshake,
+  ListTodo,
+  Bot,
+  Library,
+  Brain,
+  Award,
   BarChart3,
-  Building2,
+  School,
   MessageCircle,
-  Users2,
-  ArrowRight
+  Users,
+  ArrowRight,
+  Sparkles
 } from 'lucide-react';
 
 interface PlatformModulesProps {
@@ -22,15 +23,94 @@ interface PlatformModulesProps {
 
 const iconMap: Record<string, React.ElementType> = {
   ClipboardCheck,
-  Target,
-  Sparkles,
-  BookOpen,
-  Dumbbell,
-  HeartHandshake,
+  ListTodo,
+  Bot,
+  Library,
+  Brain,
+  Award,
   BarChart3,
-  Building2,
+  School,
   MessageCircle,
-  Users2
+  Users
+};
+
+const MODULE_AUDIENCE_MAP: Record<string, {
+  tileClass: string;
+  accent: string;
+  ink: string;
+  bgTint: string;
+  audience: string;
+}> = {
+  'exam-management': {
+    tileClass: 'icon-tile-coral',
+    accent: 'var(--coral)',
+    ink: 'var(--ink-coral)',
+    bgTint: 'var(--tile-coral)',
+    audience: 'Teachers'
+  },
+  'task-management': {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Students'
+  },
+  'ai-assistant': {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Students'
+  },
+  'library': {
+    tileClass: 'icon-tile-purple',
+    accent: 'var(--purple)',
+    ink: 'var(--ink-purple)',
+    bgTint: 'var(--tile-purple)',
+    audience: 'Everyone'
+  },
+  'training-centre': {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Students'
+  },
+  'behaviour-management': {
+    tileClass: 'icon-tile-coral',
+    accent: 'var(--coral)',
+    ink: 'var(--ink-coral)',
+    bgTint: 'var(--tile-coral)',
+    audience: 'Teachers'
+  },
+  'analytics': {
+    tileClass: 'icon-tile-mint',
+    accent: 'var(--mint)',
+    ink: 'var(--ink-mint)',
+    bgTint: 'var(--tile-mint)',
+    audience: 'Administrators'
+  },
+  'administration-management': {
+    tileClass: 'icon-tile-mint',
+    accent: 'var(--mint)',
+    ink: 'var(--ink-mint)',
+    bgTint: 'var(--tile-mint)',
+    audience: 'Administrators'
+  },
+  'whatsapp-assistant': {
+    tileClass: 'icon-tile-sun',
+    accent: 'var(--sun)',
+    ink: 'var(--ink-sun)',
+    bgTint: 'var(--tile-sun)',
+    audience: 'Parents'
+  },
+  'communities': {
+    tileClass: 'icon-tile-purple',
+    accent: 'var(--purple)',
+    ink: 'var(--ink-purple)',
+    bgTint: 'var(--tile-purple)',
+    audience: 'Everyone'
+  }
 };
 
 export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule, onOpenDemo }) => {
@@ -72,7 +152,7 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
               marginBottom: '0.75rem'
             }}
           >
-            The <span className="text-gradient">Platform.</span>
+            The Platform.
           </h2>
 
           <p
@@ -80,10 +160,11 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(1.125rem, 1.8vw, 1.35rem)',
               fontWeight: 700,
+              color: 'var(--nebula)',
               marginBottom: '1.25rem'
             }}
           >
-            <span className="text-gradient">Learn. Create. Belong</span>
+            Learn. Create. Belong.
           </p>
 
           <p
@@ -95,21 +176,21 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
               margin: '0 auto'
             }}
           >
-            GameUp AcademicOS is an AI-powered academic platform for schools, bringing together a suite of specialised tools that schools can adopt individually and expand as they grow.
+            Game Up AcademicOS is an AI-powered academic platform for schools, bringing together a suite of specialised tools that schools can adopt individually and expand as they grow.
           </p>
         </div>
 
-        {/* 10 Product Cards Grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-            gap: '20px',
-            marginBottom: '3rem'
-          }}
-        >
+        {/* 10 Product Cards 5x2 Grid */}
+        <div className="grid-5x2">
           {PLATFORM_MODULES.map((module) => {
             const IconComp = iconMap[module.icon] || Sparkles;
+            const audience = MODULE_AUDIENCE_MAP[module.id] || {
+              tileClass: 'icon-tile-blue',
+              accent: 'var(--blue)',
+              ink: 'var(--ink-blue)',
+              bgTint: 'var(--tile-blue)',
+              audience: 'Academic'
+            };
 
             return (
               <div
@@ -125,44 +206,33 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
                 }}
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '20px',
+                  borderRadius: '16px',
                   border: '1px solid var(--line-light)',
-                  padding: '1.625rem',
+                  padding: '1.35rem 1.25rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'space-between',
-                  gap: '16px',
+                  gap: '14px',
                   cursor: 'pointer',
                   transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                  boxShadow: 'var(--shadow-sm)',
+                  boxShadow: 'var(--shadow-md)',
                   position: 'relative'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-4px)';
-                  e.currentTarget.style.borderColor = 'var(--purple)';
+                  e.currentTarget.style.borderColor = audience.accent;
                   e.currentTarget.style.boxShadow = '0 14px 30px rgba(19, 26, 61, 0.12)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.borderColor = 'var(--line-light)';
-                  e.currentTarget.style.boxShadow = 'var(--shadow-sm)';
+                  e.currentTarget.style.boxShadow = 'var(--shadow-md)';
                 }}
               >
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px' }}>
-                    <div
-                      style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '14px',
-                        backgroundColor: 'var(--nebula)',
-                        color: 'var(--sun)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        boxShadow: '0 4px 12px rgba(19, 26, 61, 0.15)'
-                      }}
-                    >
+                    {/* Official Audience-Tinted Icon Tile */}
+                    <div className={`icon-tile ${audience.tileClass}`}>
                       <IconComp size={22} />
                     </div>
 
@@ -170,23 +240,22 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
                       style={{
                         fontSize: '0.6875rem',
                         fontWeight: 800,
-                        letterSpacing: '0.08em',
+                        letterSpacing: '0.06em',
                         textTransform: 'uppercase',
                         padding: '4px 10px',
                         borderRadius: '999px',
-                        backgroundColor: 'var(--cloud)',
-                        color: 'var(--slate)',
-                        border: '1px solid var(--line-light)'
+                        backgroundColor: audience.bgTint,
+                        color: audience.ink
                       }}
                     >
-                      {module.category}
+                      {audience.audience}
                     </span>
                   </div>
 
                   <h3
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: '1.15rem',
+                      fontSize: '1.05rem',
                       fontWeight: 800,
                       color: 'var(--nebula)',
                       lineHeight: 1.25,
@@ -198,59 +267,34 @@ export const PlatformModules: React.FC<PlatformModulesProps> = ({ onSelectModule
 
                   <div
                     style={{
-                      fontFamily: 'var(--font-display)',
+                      fontFamily: 'var(--font-text)',
                       fontSize: '0.8125rem',
                       fontWeight: 600,
-                      color: 'var(--coral)',
-                      lineHeight: 1.35,
-                      marginBottom: '10px'
+                      color: 'var(--slate)',
+                      lineHeight: 1.45
                     }}
                   >
                     {module.tagline}
                   </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.875rem',
-                      color: 'var(--slate)',
-                      lineHeight: 1.55,
-                      display: '-webkit-box',
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden'
-                    }}
-                  >
-                    {module.shortDesc}
-                  </p>
                 </div>
 
                 <div
                   style={{
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'space-between',
-                    paddingTop: '12px',
+                    justifyContent: 'flex-end',
+                    paddingTop: '10px',
                     borderTop: '1px solid var(--line-light)'
                   }}
                 >
-                  <span
-                    style={{
-                      fontSize: '0.75rem',
-                      fontWeight: 700,
-                      color: 'var(--slate)'
-                    }}
-                  >
-                    {module.features.length} Highlights
-                  </span>
-
                   <span
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: '4px',
                       fontSize: '0.8125rem',
-                      fontWeight: 800,
-                      color: 'var(--purple)'
+                      fontWeight: 700,
+                      color: audience.ink
                     }}
                   >
                     Explore Product

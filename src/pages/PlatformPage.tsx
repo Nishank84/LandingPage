@@ -72,8 +72,8 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
         <div className="container" style={{ position: 'relative', zIndex: 10 }}>
           <div style={{ maxWidth: '880px' }}>
             <div className="eyebrow-container" style={{ marginBottom: '1.25rem' }}>
-              <span className="eyebrow-text" style={{ color: 'var(--sun)' }}>
-                GAMEUP · ACADEMICOS
+              <span className="eyebrow-text">
+                GAME UP · ACADEMICOS
               </span>
             </div>
 
@@ -88,7 +88,7 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
                 marginBottom: '1.5rem'
               }}
             >
-              The Connected <span className="text-gradient">Academic Ecosystem.</span>
+              The Connected Academic <span className="text-gradient">Ecosystem.</span>
             </h1>
 
             <p

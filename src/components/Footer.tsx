@@ -62,7 +62,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               style={{ display: 'inline-flex' }}
-              aria-label="GameUp Home"
+              aria-label="Game Up Home"
             >
               <BrandLogo variant="dark" showTagline={false} size="md" />
             </a>
@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
                 href={FOOTER_CONTENT.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="GameUp LinkedIn Page"
+                aria-label="Game Up LinkedIn Page"
                 style={{
                   width: '40px',
                   height: '40px',
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
 
               <a
                 href={`mailto:${FOOTER_CONTENT.email}`}
-                aria-label="Email GameUp Support"
+                aria-label="Email Game Up Support"
                 style={{
                   width: '40px',
                   height: '40px',
@@ -203,37 +203,51 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo }) => {
           </div>
         </div>
 
-        {/* Bottom Back to Top */}
+        {/* Bottom Sign-off Bar per Brand Guidelines */}
         <div
           style={{
-            paddingTop: '2rem',
+            paddingTop: '2.5rem',
+            marginTop: '2rem',
+            borderTop: '1px solid rgba(43, 52, 112, 0.6)',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
             flexWrap: 'wrap',
             gap: '16px',
-            fontSize: '0.8125rem',
+            fontSize: '0.75rem',
+            fontWeight: 800,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
             color: 'var(--mist)'
           }}
         >
-          <button
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              color: 'var(--mist)',
-              fontSize: '0.8125rem',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
-            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--mist)')}
-          >
-            <span>Back to top</span>
-            <ArrowUp size={14} />
-          </button>
+          <div>
+            GAME UP · LEARN. CREATE. BELONG.
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '28px', flexWrap: 'wrap' }}>
+            <span style={{ color: 'var(--mist)' }}>INDIA → A BRIGHTER TOMORROW</span>
+            <button
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                color: 'var(--mist)',
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                cursor: 'pointer',
+                transition: 'color 0.2s ease'
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
+              onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--mist)')}
+            >
+              <span>Back to top</span>
+              <ArrowUp size={14} />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

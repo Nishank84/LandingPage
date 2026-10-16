@@ -10,7 +10,7 @@ interface DemoModalProps {
 export const DemoModal: React.FC<DemoModalProps> = ({
   isOpen,
   onClose,
-  defaultTopic = 'GameUp AcademicOS'
+  defaultTopic = 'Game Up AcademicOS'
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -141,7 +141,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({
                 Book a platform demo.
               </h2>
               <p style={{ color: 'var(--slate)', fontSize: '0.9375rem', marginTop: '0.5rem' }}>
-                See how GameUp AcademicOS and The Crucible can transform your school.
+                See how Game Up AcademicOS and The Crucible can transform your school.
               </p>
             </div>
 

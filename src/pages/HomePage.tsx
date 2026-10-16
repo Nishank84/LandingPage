@@ -23,7 +23,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenDemo }) => {
       path: '/platform',
       icon: Layers,
       accent: 'var(--coral)',
-      bgTint: 'rgba(255, 107, 77, 0.08)',
+      bgTint: 'var(--tile-coral)',
       actionText: 'Explore Platform'
     },
     {
@@ -33,8 +33,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenDemo }) => {
       description: 'One-day, gamified workshops where students explore modern digital skills, solve real problems, and build projects they can genuinely be proud of.',
       path: '/crucible',
       icon: Flame,
-      accent: 'var(--sun)',
-      bgTint: 'rgba(255, 178, 36, 0.08)',
+      accent: 'var(--ink-sun)',
+      bgTint: 'var(--tile-sun)',
       actionText: 'Explore The Crucible'
     },
     {
@@ -45,7 +45,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenDemo }) => {
       path: '/thought',
       icon: Lightbulb,
       accent: 'var(--purple)',
-      bgTint: 'rgba(139, 92, 246, 0.08)',
+      bgTint: 'var(--tile-purple)',
       actionText: 'Read The Thought'
     }
   ];
@@ -61,7 +61,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenDemo }) => {
       {/* The Problem: 70% Anxiety / 65% Overworked */}
       <ProblemSection />
 
-      {/* The Solution: GameUp AcademicOS & Stakeholder possibilities */}
+      {/* The Solution: Game Up AcademicOS & Stakeholder possibilities */}
       <SolutionSection />
 
       {/* Three Pillars Overview Section */}
@@ -75,7 +75,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onOpenDemo }) => {
         <div className="container">
           <div style={{ maxWidth: '820px', marginBottom: 'clamp(3rem, 5vw, 4.5rem)' }}>
             <div className="eyebrow-container">
-              <span className="eyebrow-text eyebrow-text-slate">DISCOVER GAMEUP</span>
+              <span className="eyebrow-text eyebrow-text-slate">DISCOVER GAME UP</span>
             </div>
 
             <h2

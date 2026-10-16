@@ -7,21 +7,21 @@ import {
   ArrowRight,
   CheckCircle2,
   ClipboardCheck,
-  Target,
-  Sparkles,
-  BookOpen,
-  Dumbbell,
-  HeartHandshake,
+  ListTodo,
+  Bot,
+  Library,
+  Brain,
+  Award,
   BarChart3,
-  Building2,
+  School,
   MessageCircle,
-  Users2,
+  Users,
   Trophy,
   ShieldCheck,
-  Bot,
   Calendar,
   Clock,
-  FileText
+  FileText,
+  Sparkles
 } from 'lucide-react';
 
 interface ProductModalProps {
@@ -34,15 +34,94 @@ interface ProductModalProps {
 
 const iconMap: Record<string, React.ElementType> = {
   ClipboardCheck,
-  Target,
-  Sparkles,
-  BookOpen,
-  Dumbbell,
-  HeartHandshake,
+  ListTodo,
+  Bot,
+  Library,
+  Brain,
+  Award,
   BarChart3,
-  Building2,
+  School,
   MessageCircle,
-  Users2
+  Users
+};
+
+const MODULE_AUDIENCE_MAP: Record<string, {
+  tileClass: string;
+  accent: string;
+  ink: string;
+  bgTint: string;
+  audience: string;
+}> = {
+  'exam-management': {
+    tileClass: 'icon-tile-coral',
+    accent: 'var(--coral)',
+    ink: 'var(--ink-coral)',
+    bgTint: 'var(--tile-coral)',
+    audience: 'Teachers'
+  },
+  'task-management': {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Students'
+  },
+  'ai-assistant': {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Students'
+  },
+  'library': {
+    tileClass: 'icon-tile-purple',
+    accent: 'var(--purple)',
+    ink: 'var(--ink-purple)',
+    bgTint: 'var(--tile-purple)',
+    audience: 'Everyone'
+  },
+  'training-centre': {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Students'
+  },
+  'behaviour-management': {
+    tileClass: 'icon-tile-coral',
+    accent: 'var(--coral)',
+    ink: 'var(--ink-coral)',
+    bgTint: 'var(--tile-coral)',
+    audience: 'Teachers'
+  },
+  'analytics': {
+    tileClass: 'icon-tile-mint',
+    accent: 'var(--mint)',
+    ink: 'var(--ink-mint)',
+    bgTint: 'var(--tile-mint)',
+    audience: 'Administrators'
+  },
+  'administration-management': {
+    tileClass: 'icon-tile-mint',
+    accent: 'var(--mint)',
+    ink: 'var(--ink-mint)',
+    bgTint: 'var(--tile-mint)',
+    audience: 'Administrators'
+  },
+  'whatsapp-assistant': {
+    tileClass: 'icon-tile-sun',
+    accent: 'var(--sun)',
+    ink: 'var(--ink-sun)',
+    bgTint: 'var(--tile-sun)',
+    audience: 'Parents'
+  },
+  'communities': {
+    tileClass: 'icon-tile-purple',
+    accent: 'var(--purple)',
+    ink: 'var(--ink-purple)',
+    bgTint: 'var(--tile-purple)',
+    audience: 'Everyone'
+  }
 };
 
 export const ProductModal: React.FC<ProductModalProps> = ({
@@ -54,6 +133,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 }) => {
   const contentRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const mobileNavRef = useRef<HTMLDivElement>(null);
+  const activeChipRef = useRef<HTMLButtonElement>(null);
 
   // AI Assistant active query simulation inside modal
   const [aiActiveQuery, setAiActiveQuery] = useState<number>(0);
@@ -81,6 +162,13 @@ export const ProductModal: React.FC<ProductModalProps> = ({
   const currentIndex = PLATFORM_MODULES.findIndex((m) => m.id === activeModuleId);
   const activeModule: PlatformModule = PLATFORM_MODULES[currentIndex >= 0 ? currentIndex : 0];
   const ActiveIcon = iconMap[activeModule.icon] || Sparkles;
+  const activeAudience = MODULE_AUDIENCE_MAP[activeModule.id] || {
+    tileClass: 'icon-tile-blue',
+    accent: 'var(--blue)',
+    ink: 'var(--ink-blue)',
+    bgTint: 'var(--tile-blue)',
+    audience: 'Academic'
+  };
 
   // Handle ESC and Arrow keys
   useEffect(() => {
@@ -118,6 +206,13 @@ export const ProductModal: React.FC<ProductModalProps> = ({
     if (contentRef.current) {
       contentRef.current.scrollTop = 0;
     }
+    if (activeChipRef.current) {
+      activeChipRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+    }
   }, [activeModuleId]);
 
   if (!isOpen) return null;
@@ -138,13 +233,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'exam-management':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
             <div
@@ -152,6 +245,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '8px',
                 paddingBottom: '1rem',
                 borderBottom: '1px solid var(--line-light)',
                 marginBottom: '1.25rem'
@@ -194,7 +289,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               </p>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', fontSize: '0.8125rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', fontSize: '0.8125rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--mint)', fontWeight: 700 }}>
                 <ShieldCheck size={16} /> Student Identity Masked (Candidate #8841B)
               </div>
@@ -206,14 +301,12 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'task-management':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: 'var(--nebula)',
               color: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
             <div
@@ -221,13 +314,15 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '8px',
                 paddingBottom: '1rem',
                 borderBottom: '1px solid var(--line)',
                 marginBottom: '1.25rem'
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <Target size={20} color="var(--sun)" />
+                <ListTodo size={20} color="var(--sun)" />
                 <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.875rem', fontWeight: 700 }}>
                   Mission Log · Class 8B
                 </span>
@@ -256,7 +351,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   display: 'flex',
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: '8px'
                 }}
               >
                 <div>
@@ -276,7 +373,9 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                   display: 'flex',
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  flexWrap: 'wrap',
+                  gap: '8px'
                 }}
               >
                 <div>
@@ -294,13 +393,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'ai-assistant':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
             <div
@@ -308,6 +405,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '8px',
                 paddingBottom: '1rem',
                 borderBottom: '1px solid var(--line-light)',
                 marginBottom: '1rem'
@@ -339,7 +438,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             </div>
 
             {/* Prompt Switcher Buttons */}
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '1rem', overflowX: 'auto', paddingBottom: '4px' }}>
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '1rem', overflowX: 'auto', paddingBottom: '4px', WebkitOverflowScrolling: 'touch' }}>
               {aiQueries.map((item, idx) => (
                 <button
                   key={idx}
@@ -353,7 +452,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                     color: aiActiveQuery === idx ? '#FFFFFF' : 'var(--slate)',
                     border: '1px solid var(--line-light)',
                     whiteSpace: 'nowrap',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    flexShrink: 0
                   }}
                 >
                   {item.tag}
@@ -401,16 +501,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'library':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--slate)', textTransform: 'uppercase' }}>
                 Resource Canvas &amp; Artifact Hub
               </span>
@@ -436,16 +534,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'training-centre':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--coral)', textTransform: 'uppercase' }}>
                 Skill Strengthening Studio
               </span>
@@ -467,16 +563,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'behaviour':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--mint)', textTransform: 'uppercase' }}>
                 Pastoral Care &amp; Wellbeing Dashboard
               </span>
@@ -504,16 +598,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'analytics':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--purple)', textTransform: 'uppercase' }}>
                 Real-Time Academic Mastery
               </span>
@@ -542,16 +634,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'admin':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
               border: '1px solid var(--line-light)',
-              boxShadow: 'var(--shadow-md)',
-              marginBottom: '2rem'
+              boxShadow: 'var(--shadow-md)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--slate)', textTransform: 'uppercase' }}>
                 School Operations Hub
               </span>
@@ -577,12 +667,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'whatsapp':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: '#ECE5DD',
-              borderRadius: '20px',
-              padding: '1.5rem',
               border: '1px solid #D1D7DB',
-              marginBottom: '2rem',
               display: 'flex',
               flexDirection: 'column',
               gap: '10px'
@@ -605,16 +693,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       case 'communities':
         return (
           <div
+            className="product-modal-mockup-card"
             style={{
               backgroundColor: 'var(--nebula)',
               color: '#FFFFFF',
-              borderRadius: '20px',
-              padding: '1.75rem',
-              border: '1px solid var(--line)',
-              marginBottom: '2rem'
+              border: '1px solid var(--line)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '1.25rem' }}>
               <span style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--sun)', textTransform: 'uppercase' }}>
                 Safe Moderated Student Circles
               </span>
@@ -640,19 +726,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
   return (
     <div
-      style={{
-        position: 'fixed',
-        inset: 0,
-        zIndex: 1000,
-        backgroundColor: 'rgba(10, 15, 40, 0.78)',
-        backdropFilter: 'blur(8px)',
-        WebkitBackdropFilter: 'blur(8px)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 'clamp(12px, 2.5vw, 24px)',
-        animation: 'fadeIn 0.2s ease-out'
-      }}
+      className="product-modal-backdrop"
       onClick={(e) => {
         if (e.target === e.currentTarget) {
           onClose();
@@ -660,42 +734,26 @@ export const ProductModal: React.FC<ProductModalProps> = ({
       }}
     >
       <div
-        style={{
-          width: 'min(1140px, 96vw)',
-          height: 'min(840px, 92vh)',
-          backgroundColor: '#FFFFFF',
-          borderRadius: '24px',
-          boxShadow: '0 25px 60px -12px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(19, 26, 61, 0.1)',
-          display: 'flex',
-          flexDirection: 'column',
-          overflow: 'hidden',
-          position: 'relative'
-        }}
+        className="product-modal-dialog"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Top Header Bar */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '14px 24px',
-            borderBottom: '1px solid var(--line-light)',
-            backgroundColor: '#FFFFFF',
-            flexShrink: 0
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <div className="product-modal-header">
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
             <span
+              className="product-modal-header-brand"
               style={{
                 fontFamily: 'var(--font-display)',
                 fontSize: '0.875rem',
                 fontWeight: 800,
                 letterSpacing: '0.04em',
-                color: 'var(--nebula)'
+                color: 'var(--nebula)',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
               }}
             >
-              GameUp AcademicOS · Product Catalog
+              Game Up AcademicOS · Product Catalog
             </span>
             <span
               style={{
@@ -703,21 +761,22 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 fontWeight: 700,
                 backgroundColor: 'var(--cloud)',
                 color: 'var(--slate)',
-                padding: '2px 8px',
-                borderRadius: '999px'
+                padding: '3px 8px',
+                borderRadius: '999px',
+                whiteSpace: 'nowrap'
               }}
             >
               {currentIndex + 1} of {PLATFORM_MODULES.length}
             </span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
             <button
               onClick={handlePrev}
               title="Previous product (Left arrow)"
               style={{
-                width: '32px',
-                height: '32px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '8px',
                 border: '1px solid var(--line-light)',
                 backgroundColor: 'var(--cloud)',
@@ -736,8 +795,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               onClick={handleNext}
               title="Next product (Right arrow)"
               style={{
-                width: '32px',
-                height: '32px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '8px',
                 border: '1px solid var(--line-light)',
                 backgroundColor: 'var(--cloud)',
@@ -752,14 +811,14 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               <ChevronRight size={18} />
             </button>
 
-            <div style={{ width: '1px', height: '20px', backgroundColor: 'var(--line-light)', margin: '0 4px' }} />
+            <div style={{ width: '1px', height: '20px', backgroundColor: 'var(--line-light)', margin: '0 2px' }} />
 
             <button
               onClick={onClose}
               title="Close (ESC)"
               style={{
-                width: '32px',
-                height: '32px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '8px',
                 border: '1px solid var(--line-light)',
                 backgroundColor: 'var(--cloud)',
@@ -776,23 +835,29 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           </div>
         </div>
 
+        {/* Mobile Horizontal Pill Bar (Visible on mobile/tablet < 768px) */}
+        <div className="product-modal-nav-mobile" ref={mobileNavRef}>
+          {PLATFORM_MODULES.map((item) => {
+            const ItemIcon = iconMap[item.icon] || Sparkles;
+            const isActive = item.id === activeModule.id;
+            return (
+              <button
+                key={item.id}
+                ref={isActive ? activeChipRef : null}
+                className={`product-modal-mobile-chip ${isActive ? 'active' : ''}`}
+                onClick={() => onSelectModule(item.id)}
+              >
+                <ItemIcon size={14} />
+                <span>{item.name}</span>
+              </button>
+            );
+          })}
+        </div>
+
         {/* Modal Split View: Left Sidebar of all products + Right details pane */}
-        <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
-          {/* Side Panel: Scrollable list of other products */}
-          <div
-            ref={sidebarRef}
-            style={{
-              width: 'clamp(260px, 28vw, 320px)',
-              flexShrink: 0,
-              backgroundColor: 'var(--cloud)',
-              borderRight: '1px solid var(--line-light)',
-              overflowY: 'auto',
-              padding: '12px 8px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '6px'
-            }}
-          >
+        <div className="product-modal-body">
+          {/* Side Panel: Scrollable list of other products (Desktop only) */}
+          <div ref={sidebarRef} className="product-modal-sidebar-desktop">
             <div
               style={{
                 padding: '8px 12px 6px 12px',
@@ -904,28 +969,16 @@ export const ProductModal: React.FC<ProductModalProps> = ({
           </div>
 
           {/* Main Pane: Active product rich content & visual mockup */}
-          <div
-            ref={contentRef}
-            style={{
-              flex: 1,
-              overflowY: 'auto',
-              padding: 'clamp(1.75rem, 3.5vw, 2.75rem)'
-            }}
-          >
+          <div ref={contentRef} className="product-modal-content">
             {/* Header Block */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(14px, 3vw, 20px)', marginBottom: '1.75rem' }}>
               <div
+                className={`icon-tile-lg ${activeAudience.tileClass}`}
                 style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '18px',
-                  backgroundColor: 'var(--nebula)',
-                  color: 'var(--sun)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexShrink: 0,
-                  boxShadow: '0 8px 20px rgba(19, 26, 61, 0.18)'
+                  width: 'clamp(56px, 12vw, 68px)',
+                  height: 'clamp(56px, 12vw, 68px)',
+                  borderRadius: '16px',
+                  boxShadow: 'var(--shadow-md)'
                 }}
               >
                 <ActiveIcon size={32} />
@@ -934,21 +987,21 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               <div>
                 <span
                   style={{
-                    fontSize: '0.75rem',
+                    fontSize: '0.8125rem',
                     fontWeight: 800,
-                    letterSpacing: '0.1em',
+                    letterSpacing: '0.08em',
                     textTransform: 'uppercase',
-                    color: 'var(--purple)',
+                    color: activeAudience.ink,
                     display: 'inline-block',
-                    marginBottom: '2px'
+                    marginBottom: '4px'
                   }}
                 >
-                  {activeModule.category} Module
+                  {activeAudience.audience} Module
                 </span>
                 <h2
                   style={{
                     fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
+                    fontSize: 'clamp(1.75rem, 2.5vw, 2.35rem)',
                     fontWeight: 800,
                     color: 'var(--nebula)',
                     lineHeight: 1.2
@@ -963,11 +1016,11 @@ export const ProductModal: React.FC<ProductModalProps> = ({
             <p
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: '1.125rem',
+                fontSize: '1.25rem',
                 fontWeight: 600,
                 color: 'var(--coral)',
                 marginBottom: '1rem',
-                lineHeight: 1.4
+                lineHeight: 1.45
               }}
             >
               {activeModule.tagline}
@@ -975,10 +1028,10 @@ export const ProductModal: React.FC<ProductModalProps> = ({
 
             <p
               style={{
-                fontSize: '0.9375rem',
-                lineHeight: 1.7,
+                fontSize: '1rem',
+                lineHeight: 1.75,
                 color: 'var(--slate)',
-                marginBottom: '2rem'
+                marginBottom: '2.25rem'
               }}
             >
               {activeModule.fullDesc}
@@ -1005,7 +1058,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
                   gap: '10px'
                 }}
               >
@@ -1046,7 +1099,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
                   gap: '10px'
                 }}
               >
@@ -1086,6 +1139,8 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
+                flexWrap: 'wrap',
+                gap: '12px',
                 paddingTop: '1.25rem',
                 borderTop: '1px solid var(--line-light)'
               }}

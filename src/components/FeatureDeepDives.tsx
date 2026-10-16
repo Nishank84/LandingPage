@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import {
   ClipboardCheck,
   ShieldCheck,
-  Target,
+  ListTodo,
   Trophy,
   Sparkles,
-  BookOpen,
-  Dumbbell,
-  HeartHandshake,
+  Library,
+  Brain,
+  Award,
   BarChart3,
-  Building2,
+  School,
   MessageCircle,
+  Users,
   Send,
   CheckCircle2,
-  Award,
   TrendingUp,
   Bot
 } from 'lucide-react';
@@ -299,7 +299,7 @@ export const FeatureDeepDives: React.FC = () => {
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <Target size={20} color="var(--sun)" />
+                  <ListTodo size={20} color="var(--sun)" />
                   <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.875rem', fontWeight: 700 }}>
                     Mission Log · Class 8B
                   </span>
@@ -774,7 +774,7 @@ export const FeatureDeepDives: React.FC = () => {
                   marginBottom: '1.25rem'
                 }}
               >
-                <BookOpen size={26} />
+                <Library size={26} />
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
@@ -875,7 +875,7 @@ export const FeatureDeepDives: React.FC = () => {
                   marginBottom: '1.25rem'
                 }}
               >
-                <Dumbbell size={26} />
+                <Brain size={26} />
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
@@ -985,7 +985,7 @@ export const FeatureDeepDives: React.FC = () => {
                   marginBottom: '1.25rem'
                 }}
               >
-                <HeartHandshake size={26} color="#906100" />
+                <Award size={26} color="#906100" />
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
@@ -1201,7 +1201,7 @@ export const FeatureDeepDives: React.FC = () => {
                   marginBottom: '1.25rem'
                 }}
               >
-                <Building2 size={26} />
+                <School size={26} />
               </div>
 
               <div className="eyebrow-container" style={{ marginBottom: '0.5rem' }}>
@@ -1385,6 +1385,22 @@ export const FeatureDeepDives: React.FC = () => {
             }}
           >
             <div style={{ maxWidth: '800px', position: 'relative', zIndex: 10 }}>
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '14px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  color: 'var(--sun)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: '1.25rem'
+                }}
+              >
+                <Users size={26} />
+              </div>
+
               <div className="eyebrow-container">
                 <span className="eyebrow-text">EXPANDING HORIZONS</span>
               </div>

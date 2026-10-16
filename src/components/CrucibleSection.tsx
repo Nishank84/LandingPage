@@ -13,21 +13,99 @@ import {
   Code2,
   Smartphone,
   Sparkles,
-  Cpu,
+  BrainCircuit,
   Palette,
   Cloud,
   Zap,
   Hammer,
+  Gamepad2,
+  Blocks,
   Trophy,
-  Compass
+  CheckCircle2
 } from 'lucide-react';
 
 interface CrucibleSectionProps {
   onOpenDemo?: (topic?: string) => void;
 }
 
-const workshopIcons = [Code2, Smartphone, Sparkles, Cpu, Palette, Cloud];
-const experienceIcons = [Zap, Hammer, Trophy, Cpu, Palette, Compass];
+const workshopIcons = [Code2, Smartphone, Sparkles, BrainCircuit, Palette, Cloud];
+const experienceIcons = [Zap, Hammer, Gamepad2, Blocks, Palette, Trophy];
+
+const pillarConfigs = [
+  {
+    tileClass: 'icon-tile-blue',
+    accentColor: 'var(--blue)',
+    badgeBg: '#E7F0FE',
+    tag: 'Problem Solving',
+    highlight: 'Replaces theory lectures with goal-driven missions'
+  },
+  {
+    tileClass: 'icon-tile-coral',
+    accentColor: 'var(--coral)',
+    badgeBg: '#FFEDEA',
+    tag: 'Hands-on Practice',
+    highlight: 'Every concept followed by live experimentation'
+  },
+  {
+    tileClass: 'icon-tile-sun',
+    accentColor: 'var(--ink-sun)',
+    badgeBg: '#FFF8E7',
+    tag: 'XP & Milestones',
+    highlight: 'Real-time recognition, badges, and peer achievements'
+  },
+  {
+    tileClass: 'icon-tile-mint',
+    accentColor: 'var(--mint)',
+    badgeBg: '#E2F8F4',
+    tag: 'Tangible Creation',
+    highlight: 'Functional software, models, and interactive tools'
+  },
+  {
+    tileClass: 'icon-tile-purple',
+    accentColor: 'var(--purple)',
+    badgeBg: '#F3EAFD',
+    tag: 'Student Agency',
+    highlight: 'Students choose their themes, ideas, and aesthetics'
+  },
+  {
+    tileClass: 'icon-tile-coral',
+    accentColor: 'var(--coral)',
+    badgeBg: '#FFEDEA',
+    tag: 'Portfolio Proof',
+    highlight: 'A verified digital project to share with parents and peers'
+  }
+];
+
+const engagementProofPoints = [
+  {
+    stat: '100% Hands-On',
+    label: 'Live Creation',
+    description: 'Students build directly in interactive environments from hour one',
+    accent: 'var(--blue)',
+    tileClass: 'icon-tile-blue'
+  },
+  {
+    stat: '0 Worksheets',
+    label: 'Active Learning',
+    description: 'Zero passive rote fill-in-the-blank handouts or slide lectures',
+    accent: 'var(--coral)',
+    tileClass: 'icon-tile-coral'
+  },
+  {
+    stat: '1 Real Project',
+    label: 'Tangible Delivery',
+    description: 'A fully functional app, model, or prototype by end of day',
+    accent: 'var(--mint)',
+    tileClass: 'icon-tile-mint'
+  },
+  {
+    stat: 'Verified Showcase',
+    label: 'Student Portfolio',
+    description: 'Proof of capability students keep and share permanently',
+    accent: 'var(--ink-sun)',
+    tileClass: 'icon-tile-sun'
+  }
+];
 
 const TypewriterRhythm: React.FC = () => {
   const items = CRUCIBLE_OUTCOME.rhythm;
@@ -399,36 +477,32 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = () => {
       </div>
 
       {/* ========================================================
-          21a. STUDENT ENGAGEMENT CHAPTER HERO
+          21. STUDENT ENGAGEMENT CHAPTER & THE 6 PILLARS
           ======================================================== */}
       <div
         id="student-engagement"
+        className="section-wrapper"
         style={{
-          backgroundColor: '#FFFFFF',
-          color: 'var(--nebula)',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          paddingTop: 'calc(var(--nav-height) + 2rem)',
-          paddingBottom: 'clamp(3rem, 6vh, 5rem)',
-          position: 'relative',
-          overflow: 'hidden',
-          boxSizing: 'border-box',
+          backgroundColor: 'var(--cloud)',
           borderBottom: '1px solid var(--line-light)'
         }}
       >
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
-          <div style={{ maxWidth: '920px' }}>
+        <div className="container">
+          {/* Header block with rich editorial hierarchy */}
+          <div style={{ maxWidth: '840px', marginBottom: 'clamp(2.5rem, 4.5vw, 3.5rem)' }}>
+            <div className="eyebrow-container" style={{ marginBottom: '1rem' }}>
+              <span className="eyebrow-text eyebrow-text-coral">PROGRAM EXPERIENCE</span>
+            </div>
+
             <h2
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)',
+                fontSize: 'var(--section-title-size)',
                 fontWeight: 800,
-                lineHeight: 1.12,
+                lineHeight: 1.15,
                 letterSpacing: '-0.035em',
                 color: 'var(--nebula)',
-                marginBottom: '1.75rem'
+                marginBottom: '1rem'
               }}
             >
               {PROGRAM_EXPERIENCE.title}
@@ -437,33 +511,35 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = () => {
             <p
               style={{
                 fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(1.25rem, 2.5vw, 1.85rem)',
-                fontWeight: 600,
+                fontSize: 'clamp(1.15rem, 2.2vw, 1.45rem)',
+                fontWeight: 700,
                 color: 'var(--purple)',
-                lineHeight: 1.4,
-                maxWidth: '820px'
+                lineHeight: 1.45,
+                marginBottom: '1rem'
               }}
             >
               {PROGRAM_EXPERIENCE.lead}
             </p>
-          </div>
-        </div>
-      </div>
 
-      {/* ========================================================
-          21b. THE 6 ENGAGEMENT PILLARS (3x2 Desktop Grid)
-          ======================================================== */}
-      <div
-        className="section-wrapper"
-        style={{
-          backgroundColor: 'var(--cloud)',
-          borderBottom: '1px solid var(--line-light)'
-        }}
-      >
-        <div className="container">
-          <div className="grid-3col">
+            <p
+              style={{
+                fontSize: '1.0625rem',
+                lineHeight: 1.7,
+                color: 'var(--slate)',
+                maxWidth: '780px'
+              }}
+            >
+              Traditional computer labs often reduce technology to passive slide decks and rote worksheets.
+              The Crucible flips the classroom dynamic entirely: from the opening minute, students step into
+              the role of builders, engineers, and designers through an interactive, mission-based journey.
+            </p>
+          </div>
+
+          {/* 6 Engagement Pillars (3x2 Desktop Grid) */}
+          <div className="grid-3col" style={{ marginBottom: 'clamp(2.5rem, 4.5vw, 3.5rem)' }}>
             {PROGRAM_EXPERIENCE.pillars.map((pillar, idx) => {
               const IconC = experienceIcons[idx] || Zap;
+              const config = pillarConfigs[idx] || pillarConfigs[0];
               return (
                 <div
                   key={pillar.title}
@@ -474,34 +550,39 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '14px',
-                    height: '100%'
+                    height: '100%',
+                    position: 'relative'
                   }}
                 >
-                  <div
-                    style={{
-                      width: '46px',
-                      height: '46px',
-                      borderRadius: '12px',
-                      backgroundColor: 'var(--cloud)',
-                      color: 'var(--purple)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
-                  >
-                    <IconC size={22} />
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                    <div className={`icon-tile ${config.tileClass}`}>
+                      <IconC size={22} />
+                    </div>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '0.75rem',
+                        fontWeight: 800,
+                        letterSpacing: '0.08em',
+                        color: config.accentColor,
+                        backgroundColor: config.badgeBg,
+                        padding: '4px 10px',
+                        borderRadius: '999px',
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      {config.tag}
+                    </span>
                   </div>
 
                   <h4
                     style={{
                       fontFamily: 'var(--font-display)',
-                      fontSize: '1.1875rem',
+                      fontSize: '1.25rem',
                       fontWeight: 800,
                       color: 'var(--nebula)',
                       lineHeight: 1.25,
-                      minHeight: '2.8rem',
-                      display: 'flex',
-                      alignItems: 'flex-start'
+                      marginTop: '4px'
                     }}
                   >
                     {pillar.title}
@@ -510,9 +591,83 @@ export const CrucibleSection: React.FC<CrucibleSectionProps> = () => {
                   <p style={{ fontSize: '0.9375rem', lineHeight: 1.65, color: 'var(--slate)', flexGrow: 1 }}>
                     {pillar.description}
                   </p>
+
+                  <div
+                    style={{
+                      borderTop: '1px solid var(--line-light)',
+                      paddingTop: '12px',
+                      fontSize: '0.8125rem',
+                      fontWeight: 600,
+                      color: 'var(--charcoal)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px'
+                    }}
+                  >
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: config.accentColor, flexShrink: 0 }} />
+                    <span>{config.highlight}</span>
+                  </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Outcome & Proof Strip */}
+          <div
+            style={{
+              backgroundColor: '#FFFFFF',
+              borderRadius: '20px',
+              border: '1px solid var(--line-light)',
+              padding: 'clamp(1.5rem, 3vw, 2rem)',
+              boxShadow: 'var(--shadow-sm)',
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+              gap: '1.5rem'
+            }}
+          >
+            {engagementProofPoints.map((item) => (
+              <div
+                key={item.stat}
+                style={{
+                  display: 'flex',
+                  alignItems: 'flex-start',
+                  gap: '12px'
+                }}
+              >
+                <div className={`icon-tile-sm ${item.tileClass}`} style={{ marginTop: '2px' }}>
+                  <CheckCircle2 size={18} />
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '1.125rem',
+                      fontWeight: 800,
+                      color: 'var(--nebula)',
+                      lineHeight: 1.2,
+                      marginBottom: '2px'
+                    }}
+                  >
+                    {item.stat}
+                  </div>
+                  <div
+                    style={{
+                      fontSize: '0.75rem',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.08em',
+                      color: item.accent,
+                      marginBottom: '4px'
+                    }}
+                  >
+                    {item.label}
+                  </div>
+                  <div style={{ fontSize: '0.8125rem', color: 'var(--slate)', lineHeight: 1.5 }}>
+                    {item.description}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

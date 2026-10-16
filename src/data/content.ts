@@ -42,7 +42,7 @@ export interface GrowthLevel {
 }
 
 export const HERO_CONTENT = {
-  eyebrow: "GAMEUP · ACADEMICOS",
+  eyebrow: "GAME UP · ACADEMICOS",
   headline: [
     "Make Education Exciting.",
     "Effortless.",
@@ -93,10 +93,10 @@ export const PROBLEM_CONTENT = {
 
 export const SOLUTION_CONTENT = {
   eyebrow: "THE SOLUTION",
-  platformName: "GameUp",
-  subBrand: "GameUp AcademicOS",
-  tagline: "Learn. Create. Belong",
-  description: "GameUp AcademicOS is an AI-powered academic platform for schools, bringing together a suite of specialised tools that schools can adopt individually and expand as they grow.",
+  platformName: "Game Up",
+  subBrand: "Game Up AcademicOS",
+  tagline: "Learn. Create. Belong.",
+  description: "Game Up AcademicOS is an AI-powered academic platform for schools, bringing together a suite of specialised tools that schools can adopt individually and expand as they grow.",
   theme: "Serious tech. Playful experience.",
   comparisons: [
     {
@@ -145,7 +145,7 @@ export const SOLUTION_CONTENT = {
       quote: "“I know what’s happening.”",
       description: "Real-time updates on WhatsApp and visibility into progress.",
       accent: "#906100",
-      bgTint: "#FFF8E9"
+      bgTint: "#FFF8E7"
     }
   ],
   pills: [
@@ -186,7 +186,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     shortDesc: "Transform routine academic tasks into engaging quests with XP, leaderboards, and parent reward exchanges.",
     fullDesc: "Game Up transforms routine academic tasks into engaging quests. Teachers assign missions to students, attach XP rewards to successful completion, and track progress as students work their way forward. Students can use their XP to climb leaderboards, unlock achievements and participate in reward exchanges with their parents. An AI-powered storytelling layer turns ordinary assignments into meaningful missions within an evolving adventure.",
     category: "engagement",
-    icon: "Target",
+    icon: "ListTodo",
     stakeholders: [
       { role: "Teachers", value: "Seamlessly manage assignments" },
       { role: "School Administrators", value: "Peak into day-to-day academic activity" },
@@ -205,10 +205,10 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     id: "ai-assistant",
     name: "Delta",
     tagline: "A curriculum-aware AI assistant for every learner.",
-    shortDesc: "Chatbot grounded in each school's exact curriculum for adaptive notes, quizzes, and explanations.",
+    shortDesc: "",
     fullDesc: "Game Up’s AI chatbot is grounded in each user’s specific curriculum, giving teachers and students an academic assistant that understands the context of their learning environment. Teachers can create notes and questions, correct answers, generate variations of topics and automate tasks across the platform. Students can ask questions, explore concepts, generate practice quizzes and receive explanations adapted to the way they learn. The assistant also keeps track of relevant in-platform activity, helping users stay on top of what needs to be done.",
     category: "core",
-    icon: "Sparkles",
+    icon: "Bot",
     stakeholders: [
       { role: "Everyone", value: "The entire school, just an ask away." }
     ],
@@ -227,7 +227,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     shortDesc: "A collaborative workspace for mind maps, flowcharts, whiteboards, rich-text pages, and flashcards.",
     fullDesc: "The Library gives teachers and students a shared space for the academic resources they create and use. Create mind maps, flowcharts, whiteboards, rich-text pages, flashcards, documents and links. Teachers can build resources and assign them to students, while students can create and organise resources for themselves.",
     category: "academic",
-    icon: "BookOpen",
+    icon: "Library",
     stakeholders: [
       { role: "Teachers", value: "Ensure important knowledge is passed down to students" },
       { role: "Students", value: "Never lose any important information" }
@@ -247,7 +247,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     shortDesc: "Personalised quizzes, AI-generated rhymes, and playful activities to strengthen foundational study habits.",
     fullDesc: "The Training Centre gives students a space to practise, experiment and strengthen the skills behind effective learning. Students can generate personalised quizzes based on their areas of weakness, learn concepts through AI-generated rhymes built around themes they enjoy, and play activities designed to strengthen foundational study skills.",
     category: "engagement",
-    icon: "Dumbbell",
+    icon: "Brain",
     stakeholders: [
       { role: "Students", value: "Practice made into a game.." }
     ],
@@ -266,7 +266,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     shortDesc: "Recognise and celebrate positive habits openly across the classroom to cultivate community encouragement.",
     fullDesc: "Teachers can recognise and reward positive student behaviour directly through Game Up. When a student receives a reward, the recognition is visible to the class—creating opportunities for positive behaviour to be noticed, celebrated and encouraged within the school community.",
     category: "management",
-    icon: "HeartHandshake",
+    icon: "Award",
     stakeholders: [
       { role: "Teachers", value: "Encourage good behaviour in students" },
       { role: "Students", value: "Get motivated to continue exhibiting goodness." }
@@ -305,7 +305,7 @@ export const PLATFORM_MODULES: PlatformModule[] = [
     shortDesc: "Streamline transportation, facilities, and daily logistical coordination in a unified environment.",
     fullDesc: "Game Up extends beyond the classroom to streamline the operational side of running a school. From transportation and facilities to other administrative activities, the platform brings school operations into a more connected environment—helping administrators coordinate the moving parts that keep a school running smoothly.",
     category: "management",
-    icon: "Building2",
+    icon: "School",
     stakeholders: [
       { role: "Administrator", value: "The entire school is manageable in a click" }
     ],
@@ -574,21 +574,21 @@ export const BELIEFS_CONTENT: Belief[] = [
     title: "Playful Experiences",
     description: "Play is a serious tool for learning.",
     accent: "#906100",
-    bgTint: "#FFF8E9",
+    bgTint: "#FFF8E7",
     iconName: "Sparkles"
   },
   {
     title: "Stronger Together",
     description: "Schools thrive as communities.",
     accent: "#7841F5",
-    bgTint: "#F1EBFE",
-    iconName: "Users2"
+    bgTint: "#F3EAFD",
+    iconName: "Users"
   }
 ];
 
 export const FOOTER_CONTENT = {
-  brand: "GameUp",
-  companyName: "GameUp Technologies",
+  brand: "Game Up",
+  companyName: "Game Up Technologies Private Limited",
   tagline: "India’s Academic OS · Learn. Create. Belong.",
   linkedin: "https://www.linkedin.com/company/gameup-technologies/",
   email: "admin@gameup.tech",
