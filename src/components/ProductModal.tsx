@@ -5,6 +5,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowRight,
+  ArrowUpRight,
   CheckCircle2,
   ClipboardCheck,
   ListTodo,
@@ -1154,6 +1155,7 @@ export const ProductModal: React.FC<ProductModalProps> = ({
                 }}
               >
                 Book a Demo
+                <ArrowUpRight size={16} />
               </button>
 
               <button

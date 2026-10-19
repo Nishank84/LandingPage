@@ -337,6 +337,16 @@ a {
   border-color: rgba(59, 130, 246, 0.3);
 }
 
+.discover-pillar-card {
+  cursor: pointer;
+}
+
+.discover-pillar-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px -15px rgba(19, 26, 61, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
 .card-cloud {
   background: var(--cloud);
   border-radius: var(--radius-md);
@@ -470,16 +480,8 @@ a {
   padding: clamp(1.25rem, 2vh, 1.75rem) clamp(1rem, 1.25vw, 1.35rem);
   border: 1px solid var(--line);
   position: relative;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-}
-
-.crucible-progression-card:hover {
-  transform: translateY(-4px);
-  background-color: #242E64;
-  border-color: rgba(255, 196, 75, 0.5);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 24px rgba(255, 107, 77, 0.15);
 }
 
 .crucible-progression-stage-badge {

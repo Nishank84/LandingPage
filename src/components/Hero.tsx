@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { HERO_CONTENT } from '../data/content';
 
 interface HeroProps {
@@ -99,10 +99,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
             alignItems: 'center'
           }}
         >
-          {/* Tracked Eyebrow */}
-          <div className="eyebrow-container" style={{ marginBottom: '1.25rem' }}>
-            <span className="eyebrow-text">{HERO_CONTENT.eyebrow}</span>
-          </div>
 
           <h1
             style={{
@@ -186,7 +182,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
               className="btn-primary"
             >
               {HERO_CONTENT.primaryCta}
-              <ArrowRight size={18} />
+              <ArrowUpRight size={18} />
             </button>
 
             <a

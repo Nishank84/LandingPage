@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface FinalCTAProps {
   onOpenDemo: (topic?: string) => void;
@@ -118,7 +118,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo }) => {
               className="btn-primary"
             >
               Book a demo
-              <ArrowRight size={18} />
+              <ArrowUpRight size={18} />
             </button>
           </div>
         </div>

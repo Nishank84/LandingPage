@@ -42,7 +42,6 @@ export interface GrowthLevel {
 }
 
 export const HERO_CONTENT = {
-  eyebrow: "GAME UP · ACADEMICOS",
   headline: [
     "Make Education Exciting.",
     "Effortless.",

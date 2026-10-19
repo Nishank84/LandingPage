@@ -1,19 +1,11 @@
 import React from 'react';
 import { ThoughtSection } from '../components/ThoughtSection';
 import { FinalCTA } from '../components/FinalCTA';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
-
 interface ThoughtPageProps {
   onOpenDemo: (topic?: string) => void;
 }
 
 export const ThoughtPage: React.FC<ThoughtPageProps> = ({ onOpenDemo }) => {
-  const handleScrollToBeliefs = () => {
-    const el = document.getElementById('thought');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <>
@@ -22,11 +14,15 @@ export const ThoughtPage: React.FC<ThoughtPageProps> = ({ onOpenDemo }) => {
         style={{
           backgroundColor: 'var(--nebula)',
           color: '#FFFFFF',
-          paddingTop: 'calc(var(--nav-height) + clamp(3.5rem, 7vw, 6rem))',
-          paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          paddingTop: 'calc(var(--nav-height) + 1.5rem)',
+          paddingBottom: 'clamp(3rem, 5vh, 5rem)',
           position: 'relative',
           overflow: 'hidden',
-          borderBottom: '1px solid var(--line)'
+          boxSizing: 'border-box'
         }}
       >
         {/* Background Vectors */}
@@ -69,7 +65,7 @@ export const ThoughtPage: React.FC<ThoughtPageProps> = ({ onOpenDemo }) => {
           </svg>
         </div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10, width: '100%' }}>
           <div style={{ maxWidth: '880px' }}>
             <div className="eyebrow-container" style={{ marginBottom: '1.25rem' }}>
               <span className="eyebrow-text">
@@ -99,39 +95,11 @@ export const ThoughtPage: React.FC<ThoughtPageProps> = ({ onOpenDemo }) => {
                 color: 'var(--mist)',
                 lineHeight: 1.6,
                 maxWidth: '740px',
-                marginBottom: '2.5rem'
+                marginBottom: 0
               }}
             >
               Education is the single most transformative experience of a child’s life. We believe schooling can be a journey of curiosity, creativity, and belonging—for every learner, teacher, and school.
             </p>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => onOpenDemo('Philosophy & Vision Conversation')}
-                className="btn-primary"
-                style={{ height: '52px', padding: '0 32px', fontSize: '1rem' }}
-              >
-                Book a demo
-                <ArrowUpRight size={18} />
-              </button>
-
-              <button
-                onClick={handleScrollToBeliefs}
-                className="btn-secondary"
-                style={{
-                  height: '52px',
-                  padding: '0 28px',
-                  fontSize: '1rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  cursor: 'pointer'
-                }}
-              >
-                Read What We Believe
-                <ArrowDown size={18} />
-              </button>
-            </div>
           </div>
         </div>
       </section>

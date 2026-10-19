@@ -1,19 +1,13 @@
 import React from 'react';
 import { PlatformModules } from '../components/PlatformModules';
 import { FinalCTA } from '../components/FinalCTA';
-import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 interface PlatformPageProps {
   onOpenDemo: (topic?: string) => void;
 }
 
 export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
-  const handleScrollToModules = () => {
-    const el = document.getElementById('platform');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <>
@@ -22,11 +16,15 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
         style={{
           backgroundColor: 'var(--nebula)',
           color: '#FFFFFF',
-          paddingTop: 'calc(var(--nav-height) + clamp(3.5rem, 7vw, 6rem))',
-          paddingBottom: 'clamp(4rem, 7vw, 6.5rem)',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          paddingTop: 'calc(var(--nav-height) + 1.5rem)',
+          paddingBottom: 'clamp(3rem, 5vh, 5rem)',
           position: 'relative',
           overflow: 'hidden',
-          borderBottom: '1px solid var(--line)'
+          boxSizing: 'border-box'
         }}
       >
         {/* Decorative Background Rays */}
@@ -69,7 +67,7 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
           </svg>
         </div>
 
-        <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+        <div className="container" style={{ position: 'relative', zIndex: 10, width: '100%' }}>
           <div style={{ maxWidth: '880px' }}>
             <div className="eyebrow-container" style={{ marginBottom: '1.25rem' }}>
               <span className="eyebrow-text">
@@ -114,23 +112,6 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
                 Book a demo
                 <ArrowUpRight size={18} />
               </button>
-
-              <button
-                onClick={handleScrollToModules}
-                className="btn-secondary"
-                style={{
-                  height: '52px',
-                  padding: '0 28px',
-                  fontSize: '1rem',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  cursor: 'pointer'
-                }}
-              >
-                Explore Modules
-                <ArrowDown size={18} />
-              </button>
             </div>
           </div>
         </div>
@@ -140,10 +121,7 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
       <PlatformModules onOpenDemo={onOpenDemo} />
 
       {/* Final CTA */}
-      <FinalCTA
-        onOpenDemo={onOpenDemo}
-        onExplorePlatform={handleScrollToModules}
-      />
+      <FinalCTA onOpenDemo={onOpenDemo} />
     </>
   );
 };
