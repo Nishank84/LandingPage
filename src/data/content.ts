@@ -49,7 +49,7 @@ export const HERO_CONTENT = {
     "Easy."
   ],
   supporting: "Education too often feels like a set of chores. We believe it can be a journey of curiosity, creativity, and belonging for everyone, in every school.",
-  primaryCta: "Book a demo",
+  primaryCta: "Book a Demo",
   secondaryCta: "Explore the platform"
 };
 

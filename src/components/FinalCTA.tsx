@@ -117,7 +117,7 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenDemo }) => {
               onClick={() => onOpenDemo('Final CTA Booking')}
               className="btn-primary"
             >
-              Book a demo
+              Book a Demo
               <ArrowUpRight size={18} />
             </button>
           </div>

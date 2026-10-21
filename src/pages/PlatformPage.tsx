@@ -109,7 +109,7 @@ export const PlatformPage: React.FC<PlatformPageProps> = ({ onOpenDemo }) => {
                 className="btn-primary"
                 style={{ height: '52px', padding: '0 32px', fontSize: '1rem' }}
               >
-                Book a demo
+                Book a Demo
                 <ArrowUpRight size={18} />
               </button>
             </div>

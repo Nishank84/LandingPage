@@ -201,7 +201,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
                 marginLeft: '12px'
               }}
             >
-              Book a demo
+              Book a Demo
               <ArrowUpRight size={16} />
             </button>
           </nav>
@@ -307,7 +307,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
               marginTop: '8px'
             }}
           >
-            Book a demo
+            Book a Demo
             <ArrowUpRight size={18} />
           </button>
         </div>

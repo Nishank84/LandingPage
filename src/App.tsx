@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -8,17 +8,34 @@ import { HomePage } from './pages/HomePage';
 import { PlatformPage } from './pages/PlatformPage';
 import { CruciblePage } from './pages/CruciblePage';
 import { ThoughtPage } from './pages/ThoughtPage';
+import { openCalendly, initCalendlyBadge, closeCalendly } from './utils/calendly';
 
 export function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [demoTopic, setDemoTopic] = useState('Game Up AcademicOS');
 
+  // Initialize Calendly floating badge widget and global Escape key listener
+  useEffect(() => {
+    initCalendlyBadge();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeCalendly();
+        setIsDemoModalOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleOpenDemo = useCallback((topic = 'Game Up AcademicOS') => {
     setDemoTopic(topic);
-    setIsDemoModalOpen(true);
+    openCalendly(topic);
   }, []);
 
   const handleCloseDemo = useCallback(() => {
+    closeCalendly();
     setIsDemoModalOpen(false);
   }, []);
 
@@ -43,7 +60,7 @@ export function App() {
         {/* Footer */}
         <Footer onOpenDemo={handleOpenDemo} />
 
-        {/* Interactive Booking Modal */}
+        {/* Interactive Booking Modal Bridge */}
         <DemoModal
           isOpen={isDemoModalOpen}
           onClose={handleCloseDemo}
