@@ -808,23 +808,12 @@ a {
   box-shadow: 0 6px 18px rgba(19, 26, 61, 0.25) !important;
 }
 
-/* Calendly Floating Badge Styling */
+/* Calendly Floating Badge Widget (Disabled) */
 .calendly-badge-widget {
-  z-index: 890 !important;
-}
-
-.calendly-badge-widget .calendly-badge-content {
-  font-family: var(--font-text) !important;
-  font-weight: 700 !important;
-  font-size: 0.875rem !important;
-  border-radius: 999px !important;
-  box-shadow: 0 8px 24px rgba(0, 105, 255, 0.35) !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-}
-
-.calendly-badge-widget .calendly-badge-content:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 12px 30px rgba(0, 105, 255, 0.45) !important;
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
 
 @media (max-width: 975px) {

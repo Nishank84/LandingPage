@@ -8,15 +8,22 @@ import { HomePage } from './pages/HomePage';
 import { PlatformPage } from './pages/PlatformPage';
 import { CruciblePage } from './pages/CruciblePage';
 import { ThoughtPage } from './pages/ThoughtPage';
-import { openCalendly, initCalendlyBadge, closeCalendly } from './utils/calendly';
+import { openCalendly, closeCalendly } from './utils/calendly';
 
 export function App() {
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [demoTopic, setDemoTopic] = useState('Game Up AcademicOS');
 
-  // Initialize Calendly floating badge widget and global Escape key listener
+  // Global Escape key listener and cleanup
   useEffect(() => {
-    initCalendlyBadge();
+    // Ensure any floating badge widget is removed
+    if (typeof window !== 'undefined' && window.Calendly?.destroyBadgeWidget) {
+      window.Calendly.destroyBadgeWidget();
+    }
+    const existingBadge = document.querySelector('.calendly-badge-widget');
+    if (existingBadge) {
+      existingBadge.remove();
+    }
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
