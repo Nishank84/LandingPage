@@ -1,0 +1,64 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#131A3D"/>
+      <stop offset="100%" stop-color="#0B0E23"/>
+    </linearGradient>
+    <linearGradient id="streak" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FF6B4D"/>
+      <stop offset="55%" stop-color="#8B5CF6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.2"/>
+    </linearGradient>
+    <radialGradient id="cornerGlow" cx="15%" cy="90%" r="75%">
+      <stop offset="0%" stop-color="#FF6B4D" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#8B5CF6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#131A3D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#cornerGlow)"/>
+
+  <!-- Brand Launch Streaks -->
+  <path d="M140 680 L920 60" stroke="url(#streak)" stroke-width="48" stroke-linecap="round" opacity="0.9"/>
+  <path d="M360 700 L1120 120" stroke="url(#streak)" stroke-width="26" stroke-linecap="round" opacity="0.75"/>
+  <path d="M30 620 L620 110" stroke="url(#streak)" stroke-width="14" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Decorative Planetary Orbs -->
+  <circle cx="110" cy="620" r="75" fill="#3A4386" opacity="0.45"/>
+  <circle cx="35" cy="580" r="50" fill="#565EA6" opacity="0.4"/>
+  <circle cx="210" cy="640" r="60" fill="#29316A" opacity="0.45"/>
+
+  <!-- Text and Branding -->
+  <g transform="translate(100, 150)">
+    <!-- Category Badge -->
+    <rect x="0" y="0" width="230" height="36" rx="18" fill="rgba(255, 107, 77, 0.18)" stroke="rgba(255, 107, 77, 0.4)" stroke-width="1"/>
+    <text x="115" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700" fill="#FF6B4D" text-anchor="middle" letter-spacing="1.5">INDIA'S ACADEMIC OS</text>
+
+    <!-- Main Title -->
+    <text x="0" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Unbounded', sans-serif" font-size="56" font-weight="800" fill="#FFFFFF" letter-spacing="-1.5">Game Up</text>
+    <text x="345" y="95" font-family="-apple-system, BlinkMacSystemFont, 'Unbounded', sans-serif" font-size="56" font-weight="800" fill="#FF6B4D" letter-spacing="-1.5">Technologies</text>
+
+    <!-- Subtitle -->
+    <text x="0" y="165" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="700" fill="#A9B0D3">AcademicOS &amp; The Crucible</text>
+
+    <!-- Tagline -->
+    <text x="0" y="225" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="500" fill="#E2E8F0">Make Education Exciting. Effortless. Efficient. Easy.</text>
+
+    <!-- Product Features Pills -->
+    <g transform="translate(0, 270)">
+      <rect x="0" y="0" width="165" height="40" rx="10" fill="rgba(59, 130, 246, 0.2)" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1"/>
+      <text x="82" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#93C5FD" text-anchor="middle">Exam Prep</text>
+
+      <rect x="180" y="0" width="165" height="40" rx="10" fill="rgba(139, 92, 246, 0.2)" stroke="rgba(139, 92, 246, 0.5)" stroke-width="1"/>
+      <text x="262" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#C4B5FD" text-anchor="middle">Delta AI Assistant</text>
+
+      <rect x="360" y="0" width="165" height="40" rx="10" fill="rgba(16, 199, 161, 0.2)" stroke="rgba(16, 199, 161, 0.5)" stroke-width="1"/>
+      <text x="442" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#6EE7B7" text-anchor="middle">Gamified Quests</text>
+
+      <rect x="540" y="0" width="175" height="40" rx="10" fill="rgba(255, 196, 75, 0.2)" stroke="rgba(255, 196, 75, 0.5)" stroke-width="1"/>
+      <text x="627" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="600" fill="#FDE68A" text-anchor="middle">Parent WhatsApp</text>
+    </g>
+  </g>
+</svg>
